@@ -23,6 +23,46 @@ public class EmpresaApplication {
 				this.telefonoEmpresa = telefonoEmpresa;
 				this.direccionEmpresa = direccionEmpresa;
 			}
+
+			public long getIdEmpresa() {
+				return idEmpresa;
+			}
+
+			public void setIdEmpresa(long idEmpresa) {
+				this.idEmpresa = idEmpresa;
+			}
+
+			public String getNombreEmpresa() {
+				return nombreEmpresa;
+			}
+
+			public void setNombreEmpresa(String nombreEmpresa) {
+				this.nombreEmpresa = nombreEmpresa;
+			}
+
+			public String getNITEmpresa() {
+				return NITEmpresa;
+			}
+
+			public void setNITEmpresa(String NITEmpresa) {
+				this.NITEmpresa = NITEmpresa;
+			}
+
+			public String getTelefonoEmpresa() {
+				return telefonoEmpresa;
+			}
+
+			public void setTelefonoEmpresa(String telefonoEmpresa) {
+				this.telefonoEmpresa = telefonoEmpresa;
+			}
+
+			public String getDireccionEmpresa() {
+				return direccionEmpresa;
+			}
+
+			public void setDireccionEmpresa(String direccionEmpresa) {
+				this.direccionEmpresa = direccionEmpresa;
+			}
 		}
 	}
 }
