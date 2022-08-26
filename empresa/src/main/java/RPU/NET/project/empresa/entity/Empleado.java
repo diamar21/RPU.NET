@@ -4,13 +4,16 @@ public class Empleado {
     private long idEmpleado;
     private String nombreEmpleado;
     private String correo;
-    private String rozonSocial;
+    private String nombreEmpresa;
+    private Rol rol;
 
-    public Empleado(long idEmpleado, String nombreEmpleado, String correo, String rozonSocial) {
+
+    public Empleado(long idEmpleado, String nombreEmpleado, String correo, String nombreEmpresa, Rol rol) {
         this.idEmpleado = idEmpleado;
         this.nombreEmpleado = nombreEmpleado;
         this.correo = correo;
-        this.rozonSocial = rozonSocial;
+        this.nombreEmpresa = nombreEmpresa;
+        this.rol = rol;
     }
 
     public long getIdEmpleado() {
@@ -37,21 +40,20 @@ public class Empleado {
         this.correo = correo;
     }
 
-    public String getRozonSocial() {
-        return rozonSocial;
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
     }
 
-    public void setRozonSocial(String rozonSocial) {
-        this.rozonSocial = rozonSocial;
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
     }
 
-    @Override
-    public String toString() {
-        return "Empleado{" +
-                "idEmpleado=" + idEmpleado +
-                ", nombreEmpleado='" + nombreEmpleado + '\'' +
-                ", correo='" + correo + '\'' +
-                ", rozonSocial='" + rozonSocial + '\'' +
-                '}';
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 }
+
