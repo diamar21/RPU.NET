@@ -2,25 +2,25 @@ package RPU.NET.project.empresa.entity;
 
 import java.time.LocalDate;
 
-public class transaction {
-    private  long idTransaction;
-    private String concept;
-    private float amount;
+public class MovimientoDinero {
+    private  long idmovimientodinero;
+    private String conceptomovimiento;
+    private float montodelmovimiento;
     //private User user;
     private Empresa enterprise;
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
     public long getIdTransaction() {
-        return idTransaction;
+        return idmovimientodinero;
     }
 
     public String getConcept() {
-        return concept;
+        return conceptomovimiento;
     }
 
     public float getAmount() {
-        return amount;
+        return montodelmovimiento;
     }
 
     /*public User getUser() {
@@ -42,15 +42,15 @@ public class transaction {
 
 
     public void setIdTransaction(long idTransaction) {
-        this.idTransaction = idTransaction;
+        this.idmovimientodinero = idTransaction;
     }
 
     public void setConcept(String concept) {
-        this.concept = concept;
+        this.conceptomovimiento = concept;
     }
 
     public void setAmount(float amount) {
-        this.amount = amount;
+        this.montodelmovimiento = amount;
     }
 
    /* public void setUser(User user) {
@@ -71,10 +71,10 @@ public class transaction {
 
     @Override
     public String toString() {
-        return "transaction{" +
-                "idTransaction=" + idTransaction +
-                ", concept='" + concept + '\'' +
-                ", amount=" + amount +
+        return "MovimientoDinero{" +
+                "idTransaction=" + idmovimientodinero +
+                ", concept='" + conceptomovimiento + '\'' +
+                ", amount=" + montodelmovimiento +
                 /*", user=" + user +*/
                 ", enterprise=" + enterprise +
                 ", createdAt=" + createdAt +
