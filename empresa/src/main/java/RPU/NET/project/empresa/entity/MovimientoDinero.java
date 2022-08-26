@@ -11,21 +11,17 @@ public class MovimientoDinero {
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
-    public long getIdTransaction() {
+    public long getIdmovimientodinero() {
         return idmovimientodinero;
     }
 
-    public String getConcept() {
+    public String getConceptomovimiento() {
         return conceptomovimiento;
     }
 
-    public float getAmount() {
+    public float getMontodelmovimiento() {
         return montodelmovimiento;
     }
-
-    /*public User getUser() {
-        return user;
-    }*/
 
     public Empresa getEnterprise() {
         return enterprise;
@@ -39,23 +35,17 @@ public class MovimientoDinero {
         return updatedAt;
     }
 
-
-
-    public void setIdTransaction(long idTransaction) {
-        this.idmovimientodinero = idTransaction;
+    public void setIdmovimientodinero(long idmovimientodinero) {
+        this.idmovimientodinero = idmovimientodinero;
     }
 
-    public void setConcept(String concept) {
-        this.conceptomovimiento = concept;
+    public void setConceptomovimiento(String conceptomovimiento) {
+        this.conceptomovimiento = conceptomovimiento;
     }
 
-    public void setAmount(float amount) {
-        this.montodelmovimiento = amount;
+    public void setMontodelmovimiento(float montodelmovimiento) {
+        this.montodelmovimiento = montodelmovimiento;
     }
-
-   /* public void setUser(User user) {
-        this.user = user;
-    }*/
 
     public void setEnterprise(Empresa enterprise) {
         this.enterprise = enterprise;
