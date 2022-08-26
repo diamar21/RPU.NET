@@ -6,7 +6,7 @@ public class Employee {
     private String lastName;
     private String mail;
     private String enterprise;
-    private String Rol rol;
+    private  Rol rol;
     private boolean state;
 
 
