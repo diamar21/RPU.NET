@@ -6,8 +6,8 @@ public class transaction {
     private  long idTransaction;
     private String concept;
     private float amount;
-    private User user;
-    private Enterprise enterprise;
+    //private User user;
+    private Empresa enterprise;
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
@@ -23,11 +23,11 @@ public class transaction {
         return amount;
     }
 
-    public User getUser() {
+    /*public User getUser() {
         return user;
-    }
+    }*/
 
-    public Enterprise getEnterprise() {
+    public Empresa getEnterprise() {
         return enterprise;
     }
 
@@ -53,11 +53,11 @@ public class transaction {
         this.amount = amount;
     }
 
-    public void setUser(User user) {
+   /* public void setUser(User user) {
         this.user = user;
-    }
+    }*/
 
-    public void setEnterprise(Enterprise enterprise) {
+    public void setEnterprise(Empresa enterprise) {
         this.enterprise = enterprise;
     }
 
@@ -75,7 +75,7 @@ public class transaction {
                 "idTransaction=" + idTransaction +
                 ", concept='" + concept + '\'' +
                 ", amount=" + amount +
-                ", user=" + user +
+                /*", user=" + user +*/
                 ", enterprise=" + enterprise +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
