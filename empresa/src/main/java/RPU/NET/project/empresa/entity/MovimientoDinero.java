@@ -11,6 +11,13 @@ public class MovimientoDinero {
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
+    public MovimientoDinero(long idmovimientodinero, String conceptomovimiento, float montodelmovimiento, Empresa enterprise) {
+        this.idmovimientodinero = idmovimientodinero;
+        this.conceptomovimiento = conceptomovimiento;
+        this.montodelmovimiento = montodelmovimiento;
+        this.enterprise = enterprise;
+    }
+
     public long getIdmovimientodinero() {
         return idmovimientodinero;
     }

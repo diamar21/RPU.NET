@@ -13,7 +13,7 @@ public class Empleado {
         this.nombreEmpleado = nombreEmpleado;
         this.correo = correo;
         this.nombreEmpresa = nombreEmpresa;
-        this.rol = rol;
+        //this.rol = rol;
     }
 
     public long getIdEmpleado() {
