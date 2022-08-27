@@ -33,9 +33,7 @@ public class Empleado {
         this.nombreEmpleado = nombreEmpleado;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
+    public String getCorreo() {return correo;}
 
     public void setCorreo(String correo) {
         this.correo = correo;
