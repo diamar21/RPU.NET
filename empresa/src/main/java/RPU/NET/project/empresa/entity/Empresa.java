@@ -8,12 +8,22 @@ public class Empresa {
     private String telefonoEmpresa;
     private String direccionEmpresa;
 
+    private MovimientoDinero movimientoDinero;
+
     public Empresa(String nombreEmpresa, String NITEmpresa, long idEmpresa, String telefonoEmpresa, String direccionEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
         this.NITEmpresa = NITEmpresa;
         this.idEmpresa = idEmpresa;
         this.telefonoEmpresa = telefonoEmpresa;
         this.direccionEmpresa = direccionEmpresa;
+    }
+
+    public MovimientoDinero getMovimientoDinero() {
+        return movimientoDinero;
+    }
+
+    public void setMovimientoDinero(MovimientoDinero movimientoDinero) {
+        this.movimientoDinero = movimientoDinero;
     }
 
     public String getNombreEmpresa() {
