@@ -5,15 +5,16 @@ public class Empleado {
     private String nombreEmpleado;
     private String correo;
     private String nombreEmpresa;
+
     private Rol rol;
 
 
-    public Empleado(long idEmpleado, String nombreEmpleado, String correo, String nombreEmpresa, Rol rol) {
+    public Empleado(long idEmpleado, String nombreEmpleado, String correo, String nombreEmpresa) {
         this.idEmpleado = idEmpleado;
         this.nombreEmpleado = nombreEmpleado;
         this.correo = correo;
         this.nombreEmpresa = nombreEmpresa;
-        this.rol = rol;
+
     }
 
     public long getIdEmpleado() {
