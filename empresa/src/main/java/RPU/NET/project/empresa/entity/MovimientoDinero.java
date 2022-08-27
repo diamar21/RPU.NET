@@ -6,16 +6,18 @@ public class MovimientoDinero {
     private  long idmovimientodinero;
     private String conceptomovimiento;
     private float montodelmovimiento;
-    //private User user;
+
+    private Usuario usuario;
     private Empresa enterprise;
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
-    public MovimientoDinero(long idmovimientodinero, String conceptomovimiento, float montodelmovimiento, Empresa enterprise) {
-        this.idmovimientodinero = idmovimientodinero;
-        this.conceptomovimiento = conceptomovimiento;
-        this.montodelmovimiento = montodelmovimiento;
-        this.enterprise = enterprise;
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public long getIdmovimientodinero() {

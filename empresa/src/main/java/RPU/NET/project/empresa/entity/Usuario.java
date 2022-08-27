@@ -10,4 +10,11 @@ public class Usuario {
     public void setIdUsuario(long idUsuario) {
         this.idUsuario = idUsuario;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "idUsuario=" + idUsuario +
+                '}';
+    }
 }

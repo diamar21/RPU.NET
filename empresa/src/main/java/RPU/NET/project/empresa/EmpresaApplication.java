@@ -66,7 +66,7 @@ public class EmpresaApplication {
 
 		// se actualiza el usuario que hizo el movimiento de dinero
 		Usuario usuario1 = new Usuario();
-		usuario1.setIdUsuario(1);
+		usuario1.setIdUsuario(2);
 		movimiento1.setUsuario(usuario1);
 		System.out.println(movimiento1.getUsuario());
 
