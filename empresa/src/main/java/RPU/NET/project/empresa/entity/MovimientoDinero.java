@@ -11,6 +11,8 @@ public class MovimientoDinero {
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
+
+
     public long getIdmovimientodinero() {
         return idmovimientodinero;
     }
@@ -51,13 +53,7 @@ public class MovimientoDinero {
         this.enterprise = enterprise;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
-    }
 
-    public void setUpdatedAt(LocalDate updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
     @Override
     public String toString() {
@@ -67,8 +63,6 @@ public class MovimientoDinero {
                 ", amount=" + montodelmovimiento +
                 /*", user=" + user +*/
                 ", enterprise=" + enterprise +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
                 '}';
     }
 }
