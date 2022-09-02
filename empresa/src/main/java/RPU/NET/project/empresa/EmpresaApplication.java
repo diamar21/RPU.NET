@@ -10,7 +10,7 @@ public class EmpresaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EmpresaApplication.class, args);
 		//empresa
-		Empresa empresa1 = new Empresa("cocacola", "452014", 21, "5241171", "cra52 nro b51 102");
+		Empresa empresa1 = new Empresa();
 		System.out.println(empresa1.getIdEmpresa());
 		System.out.println("Se crea la empresa 'cocacola'");
 		//se cambia nombre empresa
@@ -33,8 +33,10 @@ public class EmpresaApplication {
 		System.out.println(empresa1.getIdEmpresa());
 		System.out.println("Se cambia el NIT de la empresa");
 
-		//empleado
-		Empleado empleado1 = new Empleado(45, "Manuel Perez", "asdasd@gmail.com", "cocacola");
+		//empleado   CAMBIO CAMILO GALVIS
+		Empleado empleado1 = new Empleado();
+		empleado1.setIdEmpleado(1);
+		empleado1.setNombreEmpleado("Camilo Galvis");
 		System.out.println(empleado1.getNombreEmpleado());
 		System.out.println("Se crea el empleado 'empleado1'");
 
@@ -86,14 +88,8 @@ public class EmpresaApplication {
 		System.out.println("Se asigna un Monto negativo a 'movimiento1'");
 
 		// se actualiza el usuario que hizo el movimiento de dinero
-		Usuario usuario1 = new Usuario();
-		usuario1.setIdUsuario(2);
-		movimiento1.setUsuario(usuario1);
-		System.out.println(movimiento1.getUsuario());
-		System.out.println("Se asigna un Usuario a 'movimiento1'");
-
-
-
+		movimiento1.setEmpleado(empleado1);
+		System.out.println("Se hizo un movimiento dinero del usuario con id # : "+empleado1.getIdEmpleado());
 
 
 	}

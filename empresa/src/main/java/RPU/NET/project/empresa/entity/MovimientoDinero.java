@@ -7,17 +7,17 @@ public class MovimientoDinero {
     private String conceptomovimiento;
     private float montodelmovimiento;
 
-    private Usuario usuario;
+    private Empleado empleado;
     private Empresa enterprise;
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setEmpleado(Empleado empleaado) {
+        this.empleado = empleaado;
     }
 
     public long getIdmovimientodinero() {
@@ -74,7 +74,7 @@ public class MovimientoDinero {
                 "idTransaction=" + idmovimientodinero +
                 ", concept='" + conceptomovimiento + '\'' +
                 ", amount=" + montodelmovimiento +
-                /*", user=" + user +*/
+                ", user=" + empleado +
                 ", enterprise=" + enterprise +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

@@ -10,13 +10,7 @@ public class Empresa {
 
     private MovimientoDinero movimientoDinero;
 
-    public Empresa(String nombreEmpresa, String NITEmpresa, long idEmpresa, String telefonoEmpresa, String direccionEmpresa) {
-        this.nombreEmpresa = nombreEmpresa;
-        this.NITEmpresa = NITEmpresa;
-        this.idEmpresa = idEmpresa;
-        this.telefonoEmpresa = telefonoEmpresa;
-        this.direccionEmpresa = direccionEmpresa;
-    }
+
 
     public MovimientoDinero getMovimientoDinero() {
         return movimientoDinero;

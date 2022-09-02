@@ -8,13 +8,7 @@ public class Empleado {
     private Rol rol;
 
 
-    public Empleado(long idEmpleado, String nombreEmpleado, String correo, String nombreEmpresa) {
-        this.idEmpleado = idEmpleado;
-        this.nombreEmpleado = nombreEmpleado;
-        this.correo = correo;
-        this.nombreEmpresa = nombreEmpresa;
-        //this.rol = rol;
-    }
+
 
     public long getIdEmpleado() {
         return idEmpleado;
