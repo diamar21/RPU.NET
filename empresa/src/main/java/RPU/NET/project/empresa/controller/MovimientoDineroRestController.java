@@ -18,7 +18,6 @@ public class MovimientoDineroRestController {
     public MovimientoDinero findById(@PathVariable int id) {   // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
 
 
-
         MovimientoDinero movimientoDinero = new MovimientoDinero();
         movimientoDinero.setIdmovimientodinero(id);
         movimientoDinero.setConceptomovimiento("Ingresar efectivo"); //ingresar efectivo : ingresar cheque : ingresar transferencia: Realizar pago: ingreso dinero :
@@ -28,6 +27,11 @@ public class MovimientoDineroRestController {
 
         Empresa empresa = new Empresa();
         empresa.setNombreEmpresa("Truora");
+        empresa.setDireccionEmpresa("Calle 93 #13-21");
+        empresa.setIdEmpresa(1);
+        empresa.setNITEmpresa("900221598-5");
+        empresa.setTelefonoEmpresa("2356098");
+        movimientoDinero.setEnterprise(empresa);
 
         Empleado empleado = new Empleado();
         empleado.setIdEmpleado(1);
@@ -38,12 +42,13 @@ public class MovimientoDineroRestController {
         empleado.setRol(rol);
 
         movimientoDinero.setEmpleado(empleado);
+        movimientoDinero.setEnterprise(empresa);
         return movimientoDinero;
     }
 
     @GetMapping("/movimientodinero") // llama el metodo get dentro de la ruta /api/rol
     public List<MovimientoDinero> findByAll() {   // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
-        List <MovimientoDinero> movimientoDineros = new ArrayList<>();
+        List<MovimientoDinero> movimientoDineros = new ArrayList<>();
 
 
         MovimientoDinero movimientoDinero1 = new MovimientoDinero();
@@ -55,6 +60,11 @@ public class MovimientoDineroRestController {
 
         Empresa empresa = new Empresa();
         empresa.setNombreEmpresa("Truora");
+        empresa.setDireccionEmpresa("Calle 93 #13-21");
+        empresa.setIdEmpresa(1);
+        empresa.setNITEmpresa("900221598-5");
+        empresa.setTelefonoEmpresa("2356098");
+        movimientoDinero1.setEnterprise(empresa);
 
         Empleado empleado = new Empleado();
         empleado.setIdEmpleado(1);
@@ -76,6 +86,11 @@ public class MovimientoDineroRestController {
 
         Empresa empresa1 = new Empresa();
         empresa1.setNombreEmpresa("Google");
+        empresa1.setDireccionEmpresa("Calle 100 #7-28");
+        empresa1.setIdEmpresa(2);
+        empresa1.setNITEmpresa("901425800-1");
+        empresa1.setTelefonoEmpresa("3131021");
+        movimientoDinero2.setEnterprise(empresa1);
 
         Empleado empleado1 = new Empleado();
         empleado1.setIdEmpleado(1);
@@ -89,6 +104,7 @@ public class MovimientoDineroRestController {
         movimientoDineros.add(movimientoDinero2);
         return movimientoDineros;
     }
+
     @PostMapping("/movimientodinero")   //crea un nuevo rol con el id =3
     public MovimientoDinero createMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero) {
         MovimientoDinero newmovimientodinero = new MovimientoDinero();
@@ -100,4 +116,27 @@ public class MovimientoDineroRestController {
         return newmovimientodinero;
 
     }
+
+    //@PutMapping("/movimientodinero/{id}")
+   @PatchMapping("/movimientodinero/{id}")
+    public MovimientoDinero updateMovimientoDinero(@PathVariable int id, @RequestBody MovimientoDinero movimientoDinero) {
+        // solo funciona en sprint boot
+        //MovimientoDinero updateMovimientoDinero =MovimientoDineroRepository.save(movimientoDinero);  // el save solo funciona en spring boot
+        //return updateMovimientoDinero;
+
+        MovimientoDinero updateMovimientoDinero = findById(id);
+        updateMovimientoDinero.setMontodelmovimiento(movimientoDinero.getMontodelmovimiento());
+        updateMovimientoDinero.setConceptomovimiento(movimientoDinero.getConceptomovimiento());
+        updateMovimientoDinero.setUpdatedAt(movimientoDinero.getUpdatedAt());
+        updateMovimientoDinero.setEmpleado(movimientoDinero.getEmpleado());
+        updateMovimientoDinero.setEnterprise(movimientoDinero.getEnterprise());
+        return updateMovimientoDinero;
+    }
+    @DeleteMapping("/movimientodinero/{id}")
+    public void deletemovimientoDinero(@PathVariable int id) {
+
+       // UsuarioRepository.deleteById((long) id);
+        MovimientoDinero deletemovimientoDinero = findById(id);
+    }
+
 }
