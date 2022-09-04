@@ -1,5 +1,6 @@
 package RPU.NET.project.empresa.entity;
 
+
 public class Empleado {
     private long idEmpleado;
     private String nombreEmpleado;
