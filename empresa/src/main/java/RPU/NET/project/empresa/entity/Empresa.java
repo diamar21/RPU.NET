@@ -2,30 +2,19 @@ package RPU.NET.project.empresa.entity;
 import javax.persistence.*;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="Empresa_Diana")
 public class Empresa {
 
-    @Column(name = "nombre_Empresa", nullable = false)
     private String nombreEmpresa;
 
-    @Column(name = "NIT_empresa", nullable = false)
     private String NITEmpresa;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_Empresa", nullable = false)
     private long idEmpresa;
 
-    @Column(name = "telefono_Empresa", nullable = false)
     private String telefonoEmpresa;
 
-    @Column(name = "direccion_Empresa", nullable = false)
     private String direccionEmpresa;
 
-    @Column(name= "MovimientoDinero_Empresa", nullable = false)
     private MovimientoDinero MovimientoDinero;
 
-    @Column(name= "Empleado_Empresa", nullable = false)
     private Empleado empleado;
 
     public String getNombreEmpresa() {
@@ -72,7 +61,7 @@ public class Empresa {
         return MovimientoDinero;
     }
 
-    public void setMovimientoDinero(RPU.NET.project.empresa.entity.MovimientoDinero movimientoDinero) {
+    public void setMovimientoDinero(MovimientoDinero movimientoDinero) {
         MovimientoDinero = movimientoDinero;
     }
 

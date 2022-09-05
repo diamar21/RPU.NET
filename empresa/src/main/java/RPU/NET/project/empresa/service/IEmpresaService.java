@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface IEmpresaService {
 
-    Empresa findById(int id_empresa);
+    public Empresa findById(int id_empresa);
 
-    Empresa createEmpresa(Empresa empresa);
+    public Empresa createEmpresa(Empresa empresa);
 
-    Empresa updateEmpresa(Empresa empresa);
+    public Empresa updateEmpresa(Empresa empresa);
 
-    List<Empresa> findByAll();
+    public List<Empresa> findByAll();
 }
