@@ -8,7 +8,8 @@ public class MovimientoDinero {
     private float montodelmovimiento;
 
     private Empleado empleado;
-    private Empresa enterprise;
+
+    private Empresa empresa;
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
@@ -16,8 +17,8 @@ public class MovimientoDinero {
         return empleado;
     }
 
-    public void setEmpleado(Empleado empleaado) {
-        this.empleado = empleaado;
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
     public long getIdmovimientodinero() {
@@ -32,9 +33,7 @@ public class MovimientoDinero {
         return montodelmovimiento;
     }
 
-    public Empresa getEnterprise() {
-        return enterprise;
-    }
+    public Empresa getEmpresa() {return empresa;}
 
     public LocalDate getCreatedAt() {
         return createdAt;
@@ -56,8 +55,8 @@ public class MovimientoDinero {
         this.montodelmovimiento = montodelmovimiento;
     }
 
-    public void setEnterprise(Empresa enterprise) {
-        this.enterprise = enterprise;
+    public void setEmpresa(Empresa enterprise) {
+        this.empresa = enterprise;
     }
 
     public void setCreatedAt(LocalDate createdAt) {
@@ -75,7 +74,7 @@ public class MovimientoDinero {
                 ", concept='" + conceptomovimiento + '\'' +
                 ", amount=" + montodelmovimiento +
                 ", user=" + empleado +
-                ", enterprise=" + enterprise +
+                ", enterprise=" + empresa +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

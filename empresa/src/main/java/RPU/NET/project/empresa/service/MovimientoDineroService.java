@@ -25,7 +25,7 @@ public class MovimientoDineroService implements IMovimientoDineroService{
         empresa.setIdEmpresa(1);
         empresa.setNITEmpresa("900221598-5");
         empresa.setTelefonoEmpresa("2356098");
-        movimientoDinero.setEnterprise(empresa);
+        movimientoDinero.setEmpresa(empresa);
 
         Empleado empleado = new Empleado();
         empleado.setIdEmpleado(1);
@@ -36,7 +36,7 @@ public class MovimientoDineroService implements IMovimientoDineroService{
         empleado.setRol(rol);
 
         movimientoDinero.setEmpleado(empleado);
-        movimientoDinero.setEnterprise(empresa);
+        movimientoDinero.setEmpresa(empresa);
         return movimientoDinero;
     }
 
@@ -57,7 +57,7 @@ public class MovimientoDineroService implements IMovimientoDineroService{
         empresa.setIdEmpresa(1);
         empresa.setNITEmpresa("900221598-5");
         empresa.setTelefonoEmpresa("2356098");
-        movimientoDinero1.setEnterprise(empresa);
+        movimientoDinero1.setEmpresa(empresa);
 
         Empleado empleado = new Empleado();
         empleado.setIdEmpleado(1);
@@ -83,7 +83,7 @@ public class MovimientoDineroService implements IMovimientoDineroService{
         empresa1.setIdEmpresa(2);
         empresa1.setNITEmpresa("901425800-1");
         empresa1.setTelefonoEmpresa("3131021");
-        movimientoDinero2.setEnterprise(empresa1);
+        movimientoDinero2.setEmpresa(empresa1);
 
         Empleado empleado1 = new Empleado();
         empleado1.setIdEmpleado(1);
@@ -105,7 +105,7 @@ public class MovimientoDineroService implements IMovimientoDineroService{
         newmovimientodinero.setConceptomovimiento(movimientoDinero.getConceptomovimiento());
         newmovimientodinero.setCreatedAt(movimientoDinero.getCreatedAt());
         newmovimientodinero.setEmpleado(movimientoDinero.getEmpleado());
-        newmovimientodinero.setEnterprise(movimientoDinero.getEnterprise());
+        newmovimientodinero.setEmpresa(movimientoDinero.getEmpresa());
         return newmovimientodinero;
     }
 
@@ -116,7 +116,7 @@ public class MovimientoDineroService implements IMovimientoDineroService{
         updateMovimientoDinero.setConceptomovimiento(movimientoDinero.getConceptomovimiento());
         updateMovimientoDinero.setUpdatedAt(movimientoDinero.getUpdatedAt());
         updateMovimientoDinero.setEmpleado(movimientoDinero.getEmpleado());
-        updateMovimientoDinero.setEnterprise(movimientoDinero.getEnterprise());
+        updateMovimientoDinero.setEmpresa(movimientoDinero.getEmpresa());
         return updateMovimientoDinero;
     }
 

@@ -24,8 +24,8 @@ public class EmpresaRestController {
     }
 
     @GetMapping("/empresa")
-    public List<Empresa> findAll() {
-        return this.empresaServicio.findAll();
+    public List<Empresa> findByAll() {
+        return this.empresaServicio.findByAll();
     }
 
     @PostMapping("/empresa")

@@ -22,6 +22,11 @@ public class Empresa {
     @Column(name = "direccion_Empresa", nullable = false)
     private String direccionEmpresa;
 
+    @Column(name= "MovimientoDinero_Empresa", nullable = false)
+    private MovimientoDinero MovimientoDinero;
+
+    @Column(name= "Empleado_Empresa", nullable = false)
+    private Empleado empleado;
 
     public String getNombreEmpresa() {
         return nombreEmpresa;
@@ -63,7 +68,21 @@ public class Empresa {
         this.direccionEmpresa = direccionEmpresa;
     }
 
+    public RPU.NET.project.empresa.entity.MovimientoDinero getMovimientoDinero() {
+        return MovimientoDinero;
+    }
 
+    public void setMovimientoDinero(RPU.NET.project.empresa.entity.MovimientoDinero movimientoDinero) {
+        MovimientoDinero = movimientoDinero;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
 }
 
 

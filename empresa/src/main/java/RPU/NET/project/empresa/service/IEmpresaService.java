@@ -8,9 +8,9 @@ public interface IEmpresaService {
 
     Empresa findById(int id_empresa);
 
-    List<Empresa> findAll();
-
     Empresa createEmpresa(Empresa empresa);
 
     Empresa updateEmpresa(Empresa empresa);
+
+    List<Empresa> findByAll();
 }
