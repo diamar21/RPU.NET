@@ -1,13 +1,15 @@
 package RPU.NET.project.empresa.entity;
+
 import javax.persistence.*;
-import javax.persistence.Table;
+
 
 public class Empresa {
 
+    private long idEmpresa;
     private String nombreEmpresa;
 
     private String NITEmpresa;
-    private long idEmpresa;
+
 
     private String telefonoEmpresa;
 
