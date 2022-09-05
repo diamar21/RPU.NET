@@ -62,5 +62,8 @@ public class Empresa {
     public void setDireccionEmpresa(String direccionEmpresa) {
         this.direccionEmpresa = direccionEmpresa;
     }
+
+
 }
+
 
