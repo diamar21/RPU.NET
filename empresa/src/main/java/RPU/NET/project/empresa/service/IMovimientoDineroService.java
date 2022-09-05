@@ -11,7 +11,7 @@ public interface IMovimientoDineroService {
     public List<MovimientoDinero> findByAll();
     public MovimientoDinero createMovimientoDinero(MovimientoDinero movimientoDinero);
     public MovimientoDinero updateMovimientoDinero(int id, MovimientoDinero movimientoDinero);
-    public void deletemovimientoDinero(long id);
+    public void deletemovimientoDinero(int id);
 
 
 }
