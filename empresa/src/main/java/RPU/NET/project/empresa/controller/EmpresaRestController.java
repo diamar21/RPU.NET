@@ -1,5 +1,6 @@
 package RPU.NET.project.empresa.controller;
-import RPU.NET.project.empresa.servicio.IEmpresaServicio;
+import RPU.NET.project.empresa.entity.MovimientoDinero;
+import RPU.NET.project.empresa.service.IEmpresaService;
 import org.springframework.web.bind.annotation.*;
 import RPU.NET.project.empresa.entity.Empresa;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,11 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmpresaRestController {
     @Autowired
-    private IEmpresaServicio empresaServicio;
+    private IEmpresaService empresaServicio;
+
+    public EmpresaRestController(IEmpresaService empresaServicio) {
+        this.empresaServicio = empresaServicio;
+    }
 
     @GetMapping("/empresa/{id_empresa}")
     public Empresa findById(@PathVariable int id_empresa) {
@@ -29,8 +34,7 @@ public class EmpresaRestController {
     }
 
     @PutMapping("/empresa")
-    public Empresa updateEmpresa(@RequestBody Empresa empresa) {
-        return this.empresaServicio.updateEmpresa(empresa);
+    public Empresa updateEmpresa(@PathVariable int id, @RequestBody Empresa empresa) {return this.empresaServicio.updateEmpresa(empresa);
     }
 
 
