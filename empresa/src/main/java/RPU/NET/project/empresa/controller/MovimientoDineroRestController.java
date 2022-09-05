@@ -19,7 +19,7 @@ public class MovimientoDineroRestController {
     private IMovimientoDineroService movimientoDineroServiceService;
     @GetMapping("/movimientodinero/{id}") // llama el metodo get dentro de la ruta /api/movimientodinero/{id}
     // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
-    public MovimientoDinero findById(@PathVariable int id) {
+    public MovimientoDinero findById(@PathVariable long id) {
 
         return movimientoDineroServiceService.findById(id);
     }
@@ -37,7 +37,7 @@ public class MovimientoDineroRestController {
 
     //@PutMapping("/movimientodinero/{id}")
    @PatchMapping("/movimientodinero/{id}")
-    public MovimientoDinero updateMovimientoDinero(@PathVariable int id, @RequestBody MovimientoDinero movimientoDinero) {
+    public MovimientoDinero updateMovimientoDinero(@PathVariable long id, @RequestBody MovimientoDinero movimientoDinero) {
         // solo funciona en sprint boot
         //MovimientoDinero updateMovimientoDinero =MovimientoDineroRepository.save(movimientoDinero);  // el save solo funciona en spring boot
         //return updateMovimientoDinero;
@@ -45,7 +45,7 @@ public class MovimientoDineroRestController {
       return movimientoDineroServiceService.updateMovimientoDinero(id,movimientoDinero);
     }
     @DeleteMapping("/movimientodinero/{id}")
-    public void deletemovimientoDinero(@PathVariable int id) {
+    public void deletemovimientoDinero(@PathVariable long id) {
 
        // UsuarioRepository.deleteById((long) id);
         movimientoDineroServiceService.deletemovimientoDinero(id);

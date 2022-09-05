@@ -11,7 +11,7 @@ import java.util.List;
 
 public class MovimientoDineroService implements IMovimientoDineroService{
     @Override
-    public MovimientoDinero findById(int id) {
+    public MovimientoDinero findById(long id) {
         MovimientoDinero movimientoDinero = new MovimientoDinero();
         movimientoDinero.setIdmovimientodinero(id);
         movimientoDinero.setConceptomovimiento("Ingresar efectivo"); //ingresar efectivo : ingresar cheque : ingresar transferencia: Realizar pago: ingreso dinero :
@@ -110,7 +110,7 @@ public class MovimientoDineroService implements IMovimientoDineroService{
     }
 
     @Override
-    public MovimientoDinero updateMovimientoDinero(int id, MovimientoDinero movimientoDinero) {
+    public MovimientoDinero updateMovimientoDinero(long id, MovimientoDinero movimientoDinero) {
         MovimientoDinero updateMovimientoDinero = findById(id);
         updateMovimientoDinero.setMontodelmovimiento(movimientoDinero.getMontodelmovimiento());
         updateMovimientoDinero.setConceptomovimiento(movimientoDinero.getConceptomovimiento());
@@ -121,7 +121,7 @@ public class MovimientoDineroService implements IMovimientoDineroService{
     }
 
     @Override
-    public void deletemovimientoDinero(int id) {
-        MovimientoDinero deletemovimientoDinero = findById(id);
+    public void deletemovimientoDinero(long id) {
+        MovimientoDinero deletemovimientoDinero = findById((long) id);
     }
 }
