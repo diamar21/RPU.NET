@@ -16,15 +16,8 @@ public class Empresa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Empresa", nullable = false)
     private long idEmpresa;
-    public List<Empleado> empleado;
 
-    public List<Empleado> getEmpleado() {
-        return empleado;
-    }
 
-    public void setEmpleado(List<Empleado> empleado) {
-        this.empleado = empleado;
-    }
 
     @Column(name = "telefono_Empresa", nullable = false)
     private String telefonoEmpresa;
@@ -32,6 +25,25 @@ public class Empresa {
     @Column(name = "direccion_Empresa", nullable = false)
     private String direccionEmpresa;
 
+    private List<MovimientoDinero> movimientoDineros;
+
+    private List<Empleado> empleados;
+
+    public List<MovimientoDinero> getMovimientoDineros() {
+        return movimientoDineros;
+    }
+
+    public void setMovimientoDineros(List<MovimientoDinero> movimientoDineros) {
+        this.movimientoDineros = movimientoDineros;
+    }
+
+    public List<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(List<Empleado> empleados) {
+        this.empleados = empleados;
+    }
 
     public String getNombreEmpresa() {
         return nombreEmpresa;
