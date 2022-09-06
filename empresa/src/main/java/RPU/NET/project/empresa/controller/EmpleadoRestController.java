@@ -1,6 +1,7 @@
 package RPU.NET.project.empresa.controller;
 
 import RPU.NET.project.empresa.entity.Empleado;
+import RPU.NET.project.empresa.service.IEmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,26 +12,25 @@ import java.util.List;
 public class EmpleadoRestController {
 
     @Autowired
-    private Empleado empleado;
+    private IEmpleadoService empleadoService;
 
     @GetMapping("/empleado/{id_empleado}")
-    public Empleado findById(@PathVariable int id_empleado){
-        return empleado.findById(id_empleado);
+    public Empleado findById(@PathVariable long id_empleado){
+        return empleadoService.findById(id_empleado);
     }
 
     @GetMapping("/empleado")
-    public List<Empleado> findById(){
-        return this.empleado.findById();
-    }
+    public List<Empleado> findByAll(){
+        return empleadoService.findByAll();}
 
     @PostMapping("/empleado")
     public Empleado createEmpleado(@RequestBody Empleado empleado){
-        return this.empleado.createEmpleado(empleado);
+        return empleadoService.createEmpleado(empleado);
     }
 
     @PutMapping("/empleado")
-    public Empleado updateEmpleado(@RequestBody Empleado empleado){
-        return this.empleado.updateEmpleado(empleado);
+    public Empleado updateEmpleado(@PathVariable long id, @RequestBody Empleado empleado){
+        return empleadoService.updateEmpleado(id,empleado);
     }
 
 }

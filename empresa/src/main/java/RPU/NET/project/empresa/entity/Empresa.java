@@ -1,6 +1,7 @@
 package RPU.NET.project.empresa.entity;
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name="Empresa_Diana")
@@ -15,6 +16,15 @@ public class Empresa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Empresa", nullable = false)
     private long idEmpresa;
+    public List<Empleado> empleado;
+
+    public List<Empleado> getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(List<Empleado> empleado) {
+        this.empleado = empleado;
+    }
 
     @Column(name = "telefono_Empresa", nullable = false)
     private String telefonoEmpresa;

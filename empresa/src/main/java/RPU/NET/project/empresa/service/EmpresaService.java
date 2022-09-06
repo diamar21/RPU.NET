@@ -1,6 +1,9 @@
 package RPU.NET.project.empresa.service;
 
+import RPU.NET.project.empresa.entity.Empleado;
 import RPU.NET.project.empresa.entity.Empresa;
+import RPU.NET.project.empresa.entity.MovimientoDinero;
+import RPU.NET.project.empresa.entity.Rol;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +13,15 @@ public class EmpresaService implements IEmpresaService{
 
     @Override
     public Empresa findById(int id_empresa) {
+
+
         Empresa empresa = new Empresa();
         empresa.setIdEmpresa(1);
         empresa.setDireccionEmpresa("Calle 15 #95-11");
         empresa.setTelefonoEmpresa("8157536");
         empresa.setNITEmpresa("850235587-9");
         empresa.setNombreEmpresa("Postobón");
+
         return empresa;
     }
 

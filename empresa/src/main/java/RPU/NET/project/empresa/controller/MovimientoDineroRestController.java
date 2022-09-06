@@ -16,22 +16,22 @@ import java.util.List;
 @RequestMapping("/api")   // solicitud una ruta
 public class MovimientoDineroRestController {
     @Autowired
-    private IMovimientoDineroService movimientoDineroServiceService;
+    private IMovimientoDineroService movimientoDineroService;
     @GetMapping("/movimientodinero/{id}") // llama el metodo get dentro de la ruta /api/movimientodinero/{id}
     // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
     public MovimientoDinero findById(@PathVariable long id) {
 
-        return movimientoDineroServiceService.findById(id);
+        return movimientoDineroService.findById(id);
     }
 
     @GetMapping("/movimientodinero") // llama el metodo get dentro de la ruta /api/rol
     public List<MovimientoDinero> findByAll() {   // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
-       return movimientoDineroServiceService.findByAll();
+       return movimientoDineroService.findByAll();
     }
 
     @PostMapping("/movimientodinero")   //crea un nuevo rol con el id =3
     public MovimientoDinero createMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero) {
-       return movimientoDineroServiceService.createMovimientoDinero(movimientoDinero);
+       return movimientoDineroService.createMovimientoDinero(movimientoDinero);
 
     }
 
@@ -42,13 +42,13 @@ public class MovimientoDineroRestController {
         //MovimientoDinero updateMovimientoDinero =MovimientoDineroRepository.save(movimientoDinero);  // el save solo funciona en spring boot
         //return updateMovimientoDinero;
 
-      return movimientoDineroServiceService.updateMovimientoDinero(id,movimientoDinero);
+      return movimientoDineroService.updateMovimientoDinero(id,movimientoDinero);
     }
     @DeleteMapping("/movimientodinero/{id}")
     public void deletemovimientoDinero(@PathVariable long id) {
 
        // UsuarioRepository.deleteById((long) id);
-        movimientoDineroServiceService.deletemovimientoDinero(id);
+        movimientoDineroService.deletemovimientoDinero(id);
 
     }
 

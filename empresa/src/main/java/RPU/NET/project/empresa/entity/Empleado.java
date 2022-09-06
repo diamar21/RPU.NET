@@ -1,15 +1,25 @@
 package RPU.NET.project.empresa.entity;
 
 
+import java.util.List;
+
 public class Empleado {
     private long idEmpleado;
     private String nombreEmpleado;
     private String correo;
     private String nombreEmpresa;
+
+    private List<MovimientoDinero> movimientoDinero;
     private Rol rol;
 
 
+    public List<MovimientoDinero> getMovimientoDinero() {
+        return movimientoDinero;
+    }
 
+    public void setMovimientoDinero(List<MovimientoDinero> movimientoDinero) {
+        this.movimientoDinero = movimientoDinero;
+    }
 
     public long getIdEmpleado() {
         return idEmpleado;
