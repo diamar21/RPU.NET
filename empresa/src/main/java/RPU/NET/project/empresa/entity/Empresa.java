@@ -3,26 +3,18 @@ import javax.persistence.*;
 import javax.persistence.Table;
 import java.util.List;
 
-@Entity
-@Table(name="Empresa_Diana")
 public class Empresa {
 
-    @Column(name = "nombre_Empresa", nullable = false)
     private String nombreEmpresa;
 
-    @Column(name = "NIT_empresa", nullable = false)
     private String NITEmpresa;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_Empresa", nullable = false)
+
     private long idEmpresa;
 
 
 
-    @Column(name = "telefono_Empresa", nullable = false)
     private String telefonoEmpresa;
 
-    @Column(name = "direccion_Empresa", nullable = false)
     private String direccionEmpresa;
 
     private List<MovimientoDinero> movimientoDineros;

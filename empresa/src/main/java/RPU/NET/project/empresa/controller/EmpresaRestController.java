@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class EmpresaRestController {
-    @Autowired(required = false)
+    @Autowired
     private IEmpresaService empresaService;
     @GetMapping("/empresa/{id_empresa}")
     public Empresa findById(@PathVariable int id_empresa) {
