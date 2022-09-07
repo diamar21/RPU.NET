@@ -33,7 +33,7 @@ public class EmpresaRestController {
     public Empresa updateEmpresa(@PathVariable int id, @RequestBody Empresa empresa) {return this.empresaService.updateEmpresa(id,empresa);
     }
 
-    @DeleteMapping("/movimientodinero/{id}")
+    @DeleteMapping("/empresa/{id_empresa}")
     public void deleteEmpresa(@PathVariable long id) {
 
         this.empresaService.deleteEmpresa(id);
