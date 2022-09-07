@@ -1,4 +1,5 @@
 package RPU.NET.project.empresa.controller;
+import RPU.NET.project.empresa.service.EmpresaService;
 import RPU.NET.project.empresa.service.IEmpresaService;
 import org.springframework.web.bind.annotation.*;
 import RPU.NET.project.empresa.entity.Empresa;
@@ -32,5 +33,11 @@ public class EmpresaRestController {
     public Empresa updateEmpresa(@PathVariable int id, @RequestBody Empresa empresa) {return this.empresaService.updateEmpresa(id,empresa);
     }
 
+    @DeleteMapping("/movimientodinero/{id}")
+    public void deleteEmpresa(@PathVariable long id) {
+
+        this.empresaService.deleteEmpresa(id);
+
+    }
 
 }

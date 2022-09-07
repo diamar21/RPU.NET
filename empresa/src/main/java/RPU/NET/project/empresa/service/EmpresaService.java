@@ -14,6 +14,7 @@ public class EmpresaService implements IEmpresaService{
 
 
 
+
     @Override
     public Empresa findById(int id_empresa) {
 
@@ -103,9 +104,10 @@ public class EmpresaService implements IEmpresaService{
         return updateEmpresa;
     }
 
-
-
-
+    @Override
+    public void deleteEmpresa(long id) {
+        Empresa deletempresa = findById((int) id);
+    }
 
 
 }
