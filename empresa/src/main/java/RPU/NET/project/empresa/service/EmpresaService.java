@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmpresaService implements IEmpresaService{
-    private int id;
+
+
+
 
     @Override
     public Empresa findById(int id_empresa) {
@@ -91,7 +93,7 @@ public class EmpresaService implements IEmpresaService{
     }
 
     @Override
-    public Empresa updateEmpresa(Empresa empresa) {
+    public Empresa updateEmpresa(int id, Empresa empresa) {
         Empresa updateEmpresa= findById(id);
         updateEmpresa.setNombreEmpresa(empresa.getNombreEmpresa());
         updateEmpresa.setTelefonoEmpresa(empresa.getTelefonoEmpresa());

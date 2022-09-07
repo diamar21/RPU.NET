@@ -29,7 +29,7 @@ public class EmpresaRestController {
     }
 
     @PutMapping("/empresa")
-    public Empresa updateEmpresa(@PathVariable int id, @RequestBody Empresa empresa) {return this.empresaService.updateEmpresa(empresa);
+    public Empresa updateEmpresa(@PathVariable int id, @RequestBody Empresa empresa) {return this.empresaService.updateEmpresa(id,empresa);
     }
 
 

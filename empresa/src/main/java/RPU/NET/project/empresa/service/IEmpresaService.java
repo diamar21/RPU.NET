@@ -8,5 +8,5 @@ public interface IEmpresaService {
     public Empresa findById(int id_empresa);
     public List<Empresa> findByAll();
     public Empresa createEmpresa(Empresa empresa);
-    public Empresa updateEmpresa(Empresa empresa);
+    public Empresa updateEmpresa(int id, Empresa empresa);
 }
