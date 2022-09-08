@@ -4,11 +4,12 @@ import RPU.NET.project.empresa.entity.Empleado;
 import RPU.NET.project.empresa.entity.Empresa;
 import RPU.NET.project.empresa.entity.MovimientoDinero;
 import RPU.NET.project.empresa.entity.Rol;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class EmpresaService implements IEmpresaService{
     private int id;
 

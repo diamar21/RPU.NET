@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping
+@RestController     // api rest
+@RequestMapping("/api")
 public class EmpleadoRestController {
 
     @Autowired
@@ -16,6 +16,7 @@ public class EmpleadoRestController {
 
     @GetMapping("/empleado/{id_empleado}")
     public Empleado findById(@PathVariable long id_empleado){
+
         return empleadoService.findById(id_empleado);
     }
 
@@ -28,9 +29,16 @@ public class EmpleadoRestController {
         return empleadoService.createEmpleado(empleado);
     }
 
-    @PutMapping("/empleado")
+    @PutMapping("/empleado/{id}")
     public Empleado updateEmpleado(@PathVariable long id, @RequestBody Empleado empleado){
         return empleadoService.updateEmpleado(id,empleado);
+    }
+    @DeleteMapping("/empleado/{id}")
+    public void deleteEmpleado(@PathVariable long id) {
+
+        // UsuarioRepository.deleteById((long) id);
+        empleadoService.deleteEmpleado((long) id);
+
     }
 
 }
