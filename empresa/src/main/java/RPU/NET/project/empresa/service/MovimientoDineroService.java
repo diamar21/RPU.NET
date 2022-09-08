@@ -4,16 +4,47 @@ import RPU.NET.project.empresa.entity.Empleado;
 import RPU.NET.project.empresa.entity.Empresa;
 import RPU.NET.project.empresa.entity.MovimientoDinero;
 import RPU.NET.project.empresa.entity.Rol;
+import RPU.NET.project.empresa.repository.IMovimientodineroRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class MovimientoDineroService implements IMovimientoDineroService{
+    @Autowired
+    private IMovimientodineroRepository movimientodineroRepository;
     @Override
     public MovimientoDinero findById(long id) {
-        MovimientoDinero movimientoDinero = new MovimientoDinero();
+        Optional<MovimientoDinero> movimientoDinero = movimientodineroRepository.findById((long) id);
+        return movimientoDinero.get();
+    }
+    @Override
+    public List<MovimientoDinero> findByAll() {
+
+            List<MovimientoDinero> movimientoDineros = (List<MovimientoDinero>) movimientodineroRepository.findAll();
+            return movimientoDineros;
+    }
+    @Override
+    public MovimientoDinero createMovimientoDinero(MovimientoDinero movimientoDinero) {
+        MovimientoDinero newmovimientodinero = movimientodineroRepository.save(movimientoDinero);
+        return newmovimientodinero;
+    }
+    @Override
+    public MovimientoDinero updateMovimientoDinero(long id,MovimientoDinero movimientoDinero) {
+        MovimientoDinero updatemovimientodinero=movimientodineroRepository.save(movimientoDinero);
+
+        return updatemovimientodinero;
+    }
+    public void deletemovimientoDinero(long id){
+        movimientodineroRepository.deleteById((long) id);
+
+    }
+
+     /*   MovimientoDinero movimientoDinero = new MovimientoDinero();
         movimientoDinero.setIdmovimientodinero(id);
         movimientoDinero.setConceptomovimiento("Ingresar efectivo"); //ingresar efectivo : ingresar cheque : ingresar transferencia: Realizar pago: ingreso dinero :
         movimientoDinero.setMontodelmovimiento(125000);
@@ -38,10 +69,9 @@ public class MovimientoDineroService implements IMovimientoDineroService{
 
         movimientoDinero.setEmpleado(empleado);
         movimientoDinero.setEmpresa(empresa);
-        return movimientoDinero;
-    }
+        return movimientoDinero; }
 
-    @Override
+   @Override
     public List<MovimientoDinero> findByAll() {
         List<MovimientoDinero> movimientoDineros = new ArrayList<>();
         Empresa empresa = new Empresa();
@@ -120,5 +150,5 @@ public class MovimientoDineroService implements IMovimientoDineroService{
     @Override
     public void deletemovimientoDinero(long id) {
         MovimientoDinero deletemovimientoDinero = findById((long) id);
-    }
+    }*/
 }
