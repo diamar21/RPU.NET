@@ -9,15 +9,15 @@ public class Empleado {
     private String correo;
     private String nombreEmpresa;
 
-    private List<MovimientoDinero> movimientoDinero;
+    private MovimientoDinero movimientoDinero;
     private Rol rol;
 
 
-    public List<MovimientoDinero> getMovimientoDinero() {
+    public MovimientoDinero getMovimientoDinero() {
         return movimientoDinero;
     }
 
-    public void setMovimientoDinero(List<MovimientoDinero> movimientoDinero) {
+    public void setMovimientoDinero(MovimientoDinero movimientoDinero) {
         this.movimientoDinero = movimientoDinero;
     }
 
