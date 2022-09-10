@@ -22,7 +22,6 @@ private IEmpleadoRepository empleadoRepository;
 
     @Override
     public Empleado findById(long id) {
-
         Optional<Empleado> empleado = empleadoRepository.findById((long) id);
         return empleado.get();
     }
@@ -80,21 +79,23 @@ private IEmpleadoRepository empleadoRepository;
 
     @Override
     public List<Empleado> findByAll() {
-        return null;
+        List<Empleado> empleados = (List<Empleado>) empleadoRepository.findAll();
+        return empleados;
     }
 
     @Override
     public Empleado createEmpleado(Empleado empleado) {
-        return null;
+        Empleado newempleado = empleadoRepository.save(empleado);
+        return newempleado;
     }
 
     @Override
     public Empleado updateEmpleado(long id, Empleado empleado) {
-        return null;
+        Empleado updateempleado = empleadoRepository.save(empleado);
+        return updateempleado;
     }
 
     @Override
-
     public void deleteEmpleado(long id) {
         Empleado deleteEmpleado = findById((long) id);
     }
