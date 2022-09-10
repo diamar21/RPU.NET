@@ -29,6 +29,13 @@ public class MovimientoDineroRestController {
        return movimientoDineroService.findByAll();
     }
 
+    @GetMapping("/movimiento/empleado/{id}") // llama el metodo get dentro de la ruta /api/rol
+    public List<MovimientoDinero> getEmpleadoById(@PathVariable  long id) {   // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
+
+        return movimientoDineroService.getEmpleadoById(id);
+    }
+
+
     @PostMapping("/movimiento")   //crea un nuevo rol con el id =3
     public MovimientoDinero createMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero) {
        return movimientoDineroService.createMovimientoDinero(movimientoDinero);

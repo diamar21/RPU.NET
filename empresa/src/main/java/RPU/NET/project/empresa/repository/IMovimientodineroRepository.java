@@ -9,6 +9,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface IMovimientodineroRepository extends CrudRepository <MovimientoDinero, Long> {
- @Query(value ="Select * from Empresa where id_Empresa =:id",nativeQuery = true)
-    public List<Empresa> getEmpresasById(@Param("id") long id);
+    @Query(value ="Select * from Movimiento where id_empleado =:id",nativeQuery = true)
+    public List<MovimientoDinero> getEmpleadoById(@Param("id") Long id);
 }
