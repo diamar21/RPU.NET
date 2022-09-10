@@ -14,8 +14,8 @@ public class EmpresaApplication {
 		System.out.println(empresa1.getIdEmpresa());
 		System.out.println("Se crea la empresa 'cocacola'");
 		//se cambia nombre empresa
-		empresa1.setNombreEmpresa("postobon");
-		System.out.println(empresa1.getNombreEmpresa());
+		empresa1.setnombreEmpresa("postobon");
+		System.out.println(empresa1.getnombreEmpresa());
 		System.out.println("Se cambia la empresa a 'postobon'");
 
 		// se cambia direccion
@@ -51,9 +51,9 @@ public class EmpresaApplication {
 		System.out.println("Se cambia el correo del empleado");
 
 		//se cambia nombre empresa del empleado
-		empleado1.setNombreEmpresa("postobon");
-		System.out.println(empleado1.getNombreEmpresa());
-		System.out.println("Se cambia la empresa del empleado");
+		/*empleado1.setnombreEmpresa("postobon");
+		System.out.println(empleado1.getnombreEmpresa());
+		System.out.println("Se cambia la empresa del empleado");*/
 
 		//se lee  y se cambia el rol del empleado
 		Rol rol = Rol.operativo;
@@ -88,7 +88,7 @@ public class EmpresaApplication {
 		System.out.println("Se asigna un Monto negativo a 'movimiento1'");
 
 		// se actualiza el usuario que hizo el movimiento de dinero
-		movimiento1.setEmpleado(empleado1);
+		//movimiento1.setEmpleado(empleado1);
 		System.out.println("Se hizo un movimiento dinero del usuario con id # : "+empleado1.getIdEmpleado());
 
 

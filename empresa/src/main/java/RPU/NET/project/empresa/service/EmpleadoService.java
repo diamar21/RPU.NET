@@ -28,7 +28,33 @@ private IEmpleadoRepository empleadoRepository;
     }
 
 
-     /*   Empleado empleado = new Empleado();
+    @Override
+    public List<Empleado> findByAll() {
+        List<Empleado> empleados= (List<Empleado>) empleadoRepository.findAll();
+        return empleados;
+    }
+
+    @Override
+    public Empleado createEmpleado(Empleado empleado) {
+        Empleado newempleado=empleadoRepository.save(empleado);
+        return newempleado;
+    }
+
+    @Override
+    public Empleado updateEmpleado(Empleado empleado) {
+        Empleado updateempleado=empleadoRepository.save(empleado);
+        return updateempleado;
+    }
+
+    @Override
+
+    public void deleteEmpleado(long id) {
+
+        empleadoRepository.deleteById((long) id);
+    }
+
+}
+ /*   Empleado empleado = new Empleado();
         empleado.setIdEmpleado(id);
         empleado.setCorreo("jairo@hotmail.com"); //ingresar efectivo : ingresar cheque : ingresar transferencia: Realizar pago: ingreso dinero :
         empleado.setNombreEmpleado("Jairo Useche");
@@ -74,29 +100,3 @@ private IEmpleadoRepository empleadoRepository;
         movimientoDineros.add(movimientoDinero3);
 
         empleado.setMovimientoDinero(movimientoDineros); */
-
-
-
-
-    @Override
-    public List<Empleado> findByAll() {
-        return null;
-    }
-
-    @Override
-    public Empleado createEmpleado(Empleado empleado) {
-        return null;
-    }
-
-    @Override
-    public Empleado updateEmpleado(long id, Empleado empleado) {
-        return null;
-    }
-
-    @Override
-
-    public void deleteEmpleado(long id) {
-        Empleado deleteEmpleado = findById((long) id);
-    }
-
-}

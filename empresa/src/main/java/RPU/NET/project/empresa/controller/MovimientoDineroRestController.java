@@ -17,37 +17,35 @@ import java.util.List;
 public class MovimientoDineroRestController {
     @Autowired
     private IMovimientoDineroService movimientoDineroService;
-    @GetMapping("/movimientodinero/{id}") // llama el metodo get dentro de la ruta /api/movimientodinero/{id}
+    @GetMapping("/movimiento/{id}") // llama el metodo get dentro de la ruta /api/movimientodinero/{id}
     // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
     public MovimientoDinero findById(@PathVariable long id) {
 
         return movimientoDineroService.findById(id);
     }
 
-    @GetMapping("/movimientodinero") // llama el metodo get dentro de la ruta /api/rol
+    @GetMapping("/movimiento") // llama el metodo get dentro de la ruta /api/rol
     public List<MovimientoDinero> findByAll() {   // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
        return movimientoDineroService.findByAll();
     }
 
-    @PostMapping("/movimientodinero")   //crea un nuevo rol con el id =3
+    @PostMapping("/movimiento")   //crea un nuevo rol con el id =3
     public MovimientoDinero createMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero) {
        return movimientoDineroService.createMovimientoDinero(movimientoDinero);
 
     }
 
     //@PutMapping("/movimientodinero/{id}")
-   @PatchMapping("/movimientodinero/{id}")
-    public MovimientoDinero updateMovimientoDinero(@PathVariable long id, @RequestBody MovimientoDinero movimientoDinero) {
-        // solo funciona en sprint boot
-        //MovimientoDinero updateMovimientoDinero =MovimientoDineroRepository.save(movimientoDinero);  // el save solo funciona en spring boot
-        //return updateMovimientoDinero;
+   @PatchMapping("/movimiento")
+    public MovimientoDinero updateMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero) {
 
-      return movimientoDineroService.updateMovimientoDinero(id,movimientoDinero);
+
+      return movimientoDineroService.updateMovimientoDinero(movimientoDinero);
     }
-    @DeleteMapping("/movimientodinero/{id}")
+    @DeleteMapping("/movimiento/{id}")
     public void deletemovimientoDinero(@PathVariable long id) {
 
-       // UsuarioRepository.deleteById((long) id);
+
         movimientoDineroService.deletemovimientoDinero(id);
 
     }

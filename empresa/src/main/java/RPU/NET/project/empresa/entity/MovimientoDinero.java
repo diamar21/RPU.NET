@@ -3,9 +3,9 @@ package RPU.NET.project.empresa.entity;
 import javax.persistence.*;
 import java.time.LocalDate;
 @Entity  // crear las tablas en la base de datos
-@Table(name="movimientoDinero") //crear el nombre de la base de datos
+@Table(name="Movimiento") //crear el nombre de la tabla
 public class MovimientoDinero {
-    @Id // decimos qie idrol es la Primary key
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // autoincremental del id
     @Column(name = "id_movimientodinero", nullable = false) //
     private  long idmovimientodinero;
@@ -13,9 +13,10 @@ public class MovimientoDinero {
     private String conceptomovimiento;
     @Column(name = "cantidad", nullable = false)
     private float montodelmovimiento;
-    @ManyToOne // la relacion queda de la llave foranea mejora la codificacion
-    @JoinColumn(name="id_empleado", nullable = false)
-    private Empleado empleado;
+    //@OneToMany
+    //@JoinColumn(name="id_empleado", nullable = false)
+    //@Column(name="empleado")
+    //private Empleado empleado;
 
     //private Empresa empresa;
     @Column(name = "FechaCreacion", nullable = false)
@@ -23,13 +24,13 @@ public class MovimientoDinero {
     @Column(name = "FechaActualizado", nullable = false)
     private LocalDate updatedAt;
 
-   public Empleado getEmpleado() {
+  /* public Empleado getEmpleado() {
         return empleado;
     }
 
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
-    }
+    }*/
 
     public long getIdmovimientodinero() {
         return idmovimientodinero;
@@ -83,7 +84,7 @@ public class MovimientoDinero {
                 "idTransaction=" + idmovimientodinero +
                 ", concept='" + conceptomovimiento + '\'' +
                 ", amount=" + montodelmovimiento +
-                ", user=" + empleado +
+              //  ", user=" + empleado +
                // ", enterprise=" + empresa +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

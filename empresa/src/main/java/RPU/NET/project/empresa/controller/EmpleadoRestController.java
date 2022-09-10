@@ -14,10 +14,10 @@ public class EmpleadoRestController {
     @Autowired
     private IEmpleadoService empleadoService;
 
-    @GetMapping("/empleado/{id_empleado}")
-    public Empleado findById(@PathVariable long id_empleado){
+    @GetMapping("/empleado/{id}")
+    public Empleado findById(@PathVariable long id){
 
-        return empleadoService.findById(id_empleado);
+        return empleadoService.findById(id);
     }
 
     @GetMapping("/empleado")
@@ -29,9 +29,9 @@ public class EmpleadoRestController {
         return empleadoService.createEmpleado(empleado);
     }
 
-    @PutMapping("/empleado/{id}")
-    public Empleado updateEmpleado(@PathVariable long id, @RequestBody Empleado empleado){
-        return empleadoService.updateEmpleado(id,empleado);
+    @PutMapping("/empleado")
+    public Empleado updateEmpleado(@RequestBody Empleado empleado){
+        return empleadoService.updateEmpleado(empleado);
     }
     @DeleteMapping("/empleado/{id}")
     public void deleteEmpleado(@PathVariable long id) {

@@ -4,22 +4,57 @@ import RPU.NET.project.empresa.entity.Empleado;
 import RPU.NET.project.empresa.entity.Empresa;
 import RPU.NET.project.empresa.entity.MovimientoDinero;
 import RPU.NET.project.empresa.entity.Rol;
+import RPU.NET.project.empresa.repository.IEmpresaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class EmpresaService implements IEmpresaService{
 
-
-
+    @Autowired
+    private IEmpresaRepository empresaRepository;
 
 
     @Override
-    public Empresa findById(int id_empresa) {
+    public Empresa findById(long id) {
+        Optional<Empresa> empresa = empresaRepository.findById((long) id);
+        return empresa.get();
+    }
+
+    @Override
+    public List<Empresa> findAll() {
+        List <Empresa> empresas= (List<Empresa>) empresaRepository.findAll();
+        return empresas;
+    }
 
 
+    @Override
+    public Empresa createEmpresa(Empresa empresa) {
+     Empresa newempresa=empresaRepository.save(empresa);
+    return newempresa;
+    }
+
+
+    @Override
+    public Empresa updateEmpresa(Empresa empresa) {
+    Empresa updateempresa=empresaRepository.save(empresa);
+    return updateempresa;
+    }
+
+    @Override
+    public void deleteEmpresa(long id) {
+
+        empresaRepository.deleteById((long) id);
+    }
+
+
+}
+/*
         Empresa empresa = new Empresa();
         empresa.setIdEmpresa(1);
         empresa.setDireccionEmpresa("Calle 15 #95-11");
@@ -29,9 +64,6 @@ public class EmpresaService implements IEmpresaService{
 
         return empresa;
     }
-
-    @Override
-    public List<Empresa> findByAll() {
 
         List <Empresa> empresas = new ArrayList<>();
         Empleado empleado1 = new Empleado();
@@ -80,12 +112,7 @@ public class EmpresaService implements IEmpresaService{
 
 
         return empresas;
-
-    }
-
-    @Override
-    public Empresa createEmpresa(Empresa empresa) {
-        Empresa newEmpresa= new Empresa();
+       Empresa newEmpresa= new Empresa();
         newEmpresa.setNombreEmpresa(empresa.getNombreEmpresa());
         newEmpresa.setTelefonoEmpresa(empresa.getTelefonoEmpresa());
         newEmpresa.setDireccionEmpresa(empresa.getDireccionEmpresa());
@@ -93,22 +120,4 @@ public class EmpresaService implements IEmpresaService{
         newEmpresa.setIdEmpresa(empresa.getIdEmpresa());
         return newEmpresa;
     }
-
-    @Override
-    public Empresa updateEmpresa(int id, Empresa empresa) {
-        Empresa updateEmpresa= findById(id);
-        updateEmpresa.setNombreEmpresa(empresa.getNombreEmpresa());
-        updateEmpresa.setTelefonoEmpresa(empresa.getTelefonoEmpresa());
-        updateEmpresa.setDireccionEmpresa(empresa.getDireccionEmpresa());
-        updateEmpresa.setNITEmpresa(empresa.getNITEmpresa());
-        updateEmpresa.setIdEmpresa(empresa.getIdEmpresa());
-        return updateEmpresa;
-    }
-
-    @Override
-    public void deleteEmpresa(long id) {
-        Empresa deletempresa = findById((int) id);
-    }
-
-
-}
+    }*/

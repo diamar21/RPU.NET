@@ -14,29 +14,33 @@ public class EmpresaRestController {
     @Autowired
     private IEmpresaService empresaService;
     @GetMapping("/empresa/{id_empresa}")
-    public Empresa findById(@PathVariable int id_empresa) {
+    public Empresa findById(@PathVariable long id_empresa) {
+
         return empresaService.findById(id_empresa);
     }
 
 
     @GetMapping("/empresa")
     public List<Empresa> findByAll() {
-        return this.empresaService.findByAll();
+
+        return empresaService.findAll();
     }
 
     @PostMapping("/empresa")
     public Empresa createEmpresa(@RequestBody Empresa empresa) {
-        return this.empresaService.createEmpresa(empresa);
+
+        return empresaService.createEmpresa(empresa);
     }
 
     @PutMapping("/empresa")
-    public Empresa updateEmpresa(@PathVariable int id, @RequestBody Empresa empresa) {return this.empresaService.updateEmpresa(id,empresa);
+    public Empresa updateEmpresa(@RequestBody Empresa empresa) {
+        return empresaService.updateEmpresa(empresa);
     }
 
-    @DeleteMapping("/empresa/{id_empresa}")
+    @DeleteMapping("/empresa/{id}")
     public void deleteEmpresa(@PathVariable long id) {
 
-        this.empresaService.deleteEmpresa(id);
+        empresaService.deleteEmpresa(id);
 
     }
 

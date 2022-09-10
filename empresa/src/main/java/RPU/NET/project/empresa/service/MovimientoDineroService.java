@@ -34,7 +34,7 @@ public class MovimientoDineroService implements IMovimientoDineroService{
         return newmovimientodinero;
     }
     @Override
-    public MovimientoDinero updateMovimientoDinero(long id,MovimientoDinero movimientoDinero) {
+    public MovimientoDinero updateMovimientoDinero(MovimientoDinero movimientoDinero) {
         MovimientoDinero updatemovimientodinero=movimientodineroRepository.save(movimientoDinero);
 
         return updatemovimientodinero;
