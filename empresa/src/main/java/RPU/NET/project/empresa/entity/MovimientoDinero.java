@@ -13,10 +13,10 @@ public class MovimientoDinero {
     private String conceptomovimiento;
     @Column(name = "cantidad", nullable = false)
     private float montodelmovimiento;
-    //@OneToMany
-    //@JoinColumn(name="id_empleado", nullable = false)
-    //@Column(name="empleado")
-    //private Empleado empleado;
+
+    @ManyToOne
+    @JoinColumn(name="id_empleado", nullable = false)
+    private Empleado empleado;
 
     //private Empresa empresa;
     @Column(name = "FechaCreacion", nullable = false)

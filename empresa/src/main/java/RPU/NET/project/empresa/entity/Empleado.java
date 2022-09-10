@@ -29,9 +29,8 @@ public class Empleado {
     @ManyToOne // la relacion queda de la llave foranea mejora la codificacion
     @JoinColumn(name="id_Empresa", nullable = false)
     private Empresa empresa;
-    @ManyToOne // la relacion queda de la llave foranea mejora la codificacion
-    @JoinColumn(name="id_movimientodinero", nullable = false)
-    private MovimientoDinero movimientoDinero;
+
+    //private MovimientoDinero movimientoDinero;
 
 
     @Column(name = "rol")
@@ -77,14 +76,14 @@ public class Empleado {
         this.updatedAt = updatedAt;
     }
 
-    public MovimientoDinero getMovimientoDinero() {
+  /*  public MovimientoDinero getMovimientoDinero() {
         return movimientoDinero;
     }
 
     public void setMovimientoDinero(MovimientoDinero movimientoDinero) {
         this.movimientoDinero = movimientoDinero;
     }
-
+*/
     public long getIdEmpleado() {
         return idEmpleado;
     }
