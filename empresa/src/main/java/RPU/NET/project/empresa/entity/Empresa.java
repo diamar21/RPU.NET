@@ -3,50 +3,50 @@ import javax.persistence.*;
 
 import java.util.List;
 
-//@Entity
-//@Table(name="Empresa_Diana")
+@Entity
+@Table(name="Empresa")
 public class Empresa {
-    /*@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_Empresa", nullable = false)*/
+    @Column(name = "id_Empresa", nullable = false)
     private long idEmpresa;
-   // @Column(name = "nombre_Empresa", nullable = false)
+    @Column(name = "nombre_Empresa", nullable = false)
     private String nombreEmpresa;
 
-    //@Column(name = "NIT_empresa", nullable = false)
+    @Column(name = "NIT_empresa", nullable = false)
     private String NITEmpresa;
 
-   // @Column(name = "telefono_Empresa", nullable = false)
+    @Column(name = "telefono_Empresa", nullable = false)
     private String telefonoEmpresa;
 
-    //@Column(name = "direccion_Empresa", nullable = false)
+    @Column(name = "direccion_Empresa", nullable = false)
     private String direccionEmpresa;
 
-    private List<MovimientoDinero> movimientoDineros;
+   /* private MovimientoDinero movimientoDineros;
 
-    private List<Empleado> empleados;
+    private Empleado empleados;
 
-    public List<MovimientoDinero> getMovimientoDineros() {
+    public MovimientoDinero getMovimientoDineros() {
         return movimientoDineros;
     }
 
-    public void setMovimientoDineros(List<MovimientoDinero> movimientoDineros) {
+    public void setMovimientoDineros(MovimientoDinero movimientoDineros) {
         this.movimientoDineros = movimientoDineros;
     }
 
-    public List<Empleado> getEmpleados() {
+    public Empleado getEmpleados() {
         return empleados;
     }
 
-    public void setEmpleados(List<Empleado> empleados) {
+    public void setEmpleados(Empleado empleados) {
         this.empleados = empleados;
-    }
+    }*/
 
-    public String getNombreEmpresa() {
+    public String getnombreEmpresa() {
         return nombreEmpresa;
     }
 
-    public void setNombreEmpresa(String nombreEmpresa) {
+    public void setnombreEmpresa(String nombreEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
     }
 

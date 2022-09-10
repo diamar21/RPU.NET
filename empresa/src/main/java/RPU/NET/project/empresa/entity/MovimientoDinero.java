@@ -1,25 +1,36 @@
 package RPU.NET.project.empresa.entity;
 
+import javax.persistence.*;
 import java.time.LocalDate;
-
+@Entity  // crear las tablas en la base de datos
+@Table(name="Movimiento") //crear el nombre de la tabla
 public class MovimientoDinero {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // autoincremental del id
+    @Column(name = "id_movimientodinero", nullable = false) //
     private  long idmovimientodinero;
+    @Column(name = "concepto", nullable = false)
     private String conceptomovimiento;
+    @Column(name = "cantidad", nullable = false)
     private float montodelmovimiento;
 
+    @ManyToOne
+    @JoinColumn(name="id_empleado", nullable = false)
     private Empleado empleado;
 
-    private Empresa empresa;
+    //private Empresa empresa;
+    @Column(name = "FechaCreacion", nullable = false)
     private LocalDate createdAt;
+    @Column(name = "FechaActualizado", nullable = false)
     private LocalDate updatedAt;
 
-    public Empleado getEmpleado() {
+  /* public Empleado getEmpleado() {
         return empleado;
     }
 
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
-    }
+    }*/
 
     public long getIdmovimientodinero() {
         return idmovimientodinero;
@@ -33,7 +44,7 @@ public class MovimientoDinero {
         return montodelmovimiento;
     }
 
-    public Empresa getEmpresa() {return empresa;}
+   /* public Empresa getEmpresa() {return empresa;}*/
 
     public LocalDate getCreatedAt() {
         return createdAt;
@@ -55,9 +66,9 @@ public class MovimientoDinero {
         this.montodelmovimiento = montodelmovimiento;
     }
 
-    public void setEmpresa(Empresa enterprise) {
+  /*  public void setEmpresa(Empresa enterprise) {
         this.empresa = enterprise;
-    }
+    }*/
 
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
@@ -73,8 +84,8 @@ public class MovimientoDinero {
                 "idTransaction=" + idmovimientodinero +
                 ", concept='" + conceptomovimiento + '\'' +
                 ", amount=" + montodelmovimiento +
-                ", user=" + empleado +
-                ", enterprise=" + empresa +
+              //  ", user=" + empleado +
+               // ", enterprise=" + empresa +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
