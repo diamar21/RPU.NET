@@ -27,6 +27,12 @@ public class EmpresaService implements IEmpresaService{
     }
 
     @Override
+    public Empresa updateIdEmpresa(long id, Empresa empresa) {
+        Empresa updateIdEmpresa = empresaRepository.save(empresa);
+        return updateIdEmpresa;
+    }
+
+    @Override
     public List<Empresa> findAll() {
         List <Empresa> empresas= (List<Empresa>) empresaRepository.findAll();
         return empresas;

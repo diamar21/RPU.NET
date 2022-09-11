@@ -13,4 +13,7 @@ import java.util.List;
 @Repository
 public interface IEmpleadoRepository extends CrudRepository <Empleado, Long> {
 
+    @Query(value ="Select * from empleado where id_Empresa =:id",nativeQuery = true)
+    public List<Empleado> getEmpresaById(@Param("id") Long id);
+
 }
