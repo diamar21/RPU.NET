@@ -44,6 +44,7 @@ public class EmpleadoRestController {
         return empleadoService.getEmpresaById(id);
     }
 
+
     @DeleteMapping("/empleado/{id}")
     public void deleteEmpleado(@PathVariable long id) {
 

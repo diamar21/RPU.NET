@@ -1,15 +1,11 @@
 package RPU.NET.project.empresa.service;
 
-import RPU.NET.project.empresa.entity.Empleado;
 import RPU.NET.project.empresa.entity.Empresa;
 import RPU.NET.project.empresa.entity.MovimientoDinero;
-import RPU.NET.project.empresa.entity.Rol;
 import RPU.NET.project.empresa.repository.IEmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +21,8 @@ public class EmpresaService implements IEmpresaService{
         Optional<Empresa> empresa = empresaRepository.findById((long) id);
         return empresa.get();
     }
+
+
 
     @Override
     public Empresa updateIdEmpresa(long id, Empresa empresa) {

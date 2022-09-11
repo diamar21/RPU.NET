@@ -1,10 +1,14 @@
 package RPU.NET.project.empresa.controller;
-import RPU.NET.project.empresa.service.EmpresaService;
+import RPU.NET.project.empresa.entity.Empleado;
+import RPU.NET.project.empresa.entity.MovimientoDinero;
+import RPU.NET.project.empresa.service.IEmpleadoService;
 import RPU.NET.project.empresa.service.IEmpresaService;
+import RPU.NET.project.empresa.service.IMovimientoDineroService;
 import org.springframework.web.bind.annotation.*;
 import RPU.NET.project.empresa.entity.Empresa;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -13,11 +17,20 @@ import java.util.List;
 public class EmpresaRestController {
     @Autowired
     private IEmpresaService empresaService;
+
+    @Autowired
+    private IEmpleadoService empleadoService;
+
+    @Autowired
+    private IMovimientoDineroService movimientoDineroService;
+
     @GetMapping("/empresa/{id_empresa}")
     public Empresa findById(@PathVariable long id_empresa) {
 
         return empresaService.findById(id_empresa);
     }
+
+
 
 
     @GetMapping("/empresa")
