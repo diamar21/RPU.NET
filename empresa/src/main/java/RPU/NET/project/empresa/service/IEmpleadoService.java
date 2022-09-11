@@ -11,6 +11,9 @@ public interface IEmpleadoService {
     public Empleado createEmpleado(Empleado empleado);
     public Empleado updateEmpleado(Empleado empleado);
     public void deleteEmpleado(long id);
+    public List<Empleado> getEmpresaById(long id);
+
+    public Empleado updateIdEempleado(long id, Empleado empleado);
 
 
 

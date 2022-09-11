@@ -32,7 +32,7 @@ public class EmpresaRestController {
         return empresaService.createEmpresa(empresa);
     }
     @PatchMapping("/empresa/{id}")
-    public Empresa updateIdEmpresa(@PathVariable long id,  @RequestBody Empresa empresa) {
+    public Empresa updateIdEmpresa(@PathVariable long id, @RequestBody Empresa empresa) {
         return empresaService.updateIdEmpresa(id, empresa);
     }
 

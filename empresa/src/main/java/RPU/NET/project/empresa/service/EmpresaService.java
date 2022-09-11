@@ -28,7 +28,7 @@ public class EmpresaService implements IEmpresaService{
 
     @Override
     public Empresa updateIdEmpresa(long id, Empresa empresa) {
-           Empresa updateIdEmpresa=empresaRepository.save(empresa);
+        Empresa updateIdEmpresa = empresaRepository.save(empresa);
         return updateIdEmpresa;
     }
 

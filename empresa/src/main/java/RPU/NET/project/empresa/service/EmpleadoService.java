@@ -27,6 +27,17 @@ private IEmpleadoRepository empleadoRepository;
         return empleado.get();
     }
 
+    @Override
+    public List<Empleado> getEmpresaById(long id) {
+        List<Empleado> empleados = empleadoRepository.getEmpresaById(id);
+        return empleados;
+
+    }
+    public Empleado updateIdEmpleado(long id, Empleado empleado) {
+        Empleado updateIdEmpleado = empleadoRepository.save(empleado);
+        return updateIdEmpleado;
+    }
+
 
     @Override
     public List<Empleado> findByAll() {

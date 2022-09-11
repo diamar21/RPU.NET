@@ -1,6 +1,7 @@
 package RPU.NET.project.empresa.controller;
 
 import RPU.NET.project.empresa.entity.Empleado;
+import RPU.NET.project.empresa.entity.MovimientoDinero;
 import RPU.NET.project.empresa.service.IEmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,16 @@ public class EmpleadoRestController {
     public Empleado updateEmpleado(@RequestBody Empleado empleado){
         return empleadoService.updateEmpleado(empleado);
     }
+
+    @PatchMapping("/empleado/{id}")
+    public Empleado updateIdEmpleado(@PathVariable long id, @RequestBody Empleado empleado) {
+        return empleadoService.updateIdEmpleado(id, empleado);
+    }
+    @GetMapping("/empleado/empresa/{id}")
+    public List<Empleado> getEmpresaById(@PathVariable  long id) {   // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
+        return empleadoService.getEmpresaById(id);
+    }
+
     @DeleteMapping("/empleado/{id}")
     public void deleteEmpleado(@PathVariable long id) {
 
