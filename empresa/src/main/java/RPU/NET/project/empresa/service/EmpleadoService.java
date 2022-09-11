@@ -33,6 +33,11 @@ private IEmpleadoRepository empleadoRepository;
         return empleados;
 
     }
+    public Empleado updateIdEmpleado(long id, Empleado empleado) {
+        Empleado updateIdEmpleado = empleadoRepository.save(empleado);
+        return updateIdEmpleado;
+    }
+
 
     @Override
     public List<Empleado> findByAll() {

@@ -13,6 +13,8 @@ public interface IEmpleadoService {
     public void deleteEmpleado(long id);
     public List<Empleado> getEmpresaById(long id);
 
+    public Empleado updateIdEempleado(long id, Empleado empleado);
+
 
 
     }

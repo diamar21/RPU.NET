@@ -35,6 +35,10 @@ public class EmpleadoRestController {
         return empleadoService.updateEmpleado(empleado);
     }
 
+    @PatchMapping("/empleado/{id}")
+    public Empleado updateIdEmpleado(@PathVariable long id, @RequestBody Empleado empleado) {
+        return empleadoService.updateIdEmpleado(id, empleado);
+    }
     @GetMapping("/empleado/empresa/{id}")
     public List<Empleado> getEmpresaById(@PathVariable  long id) {   // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
         return empleadoService.getEmpresaById(id);
