@@ -11,6 +11,9 @@ public class EmpresaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EmpresaApplication.class, args);
 
+		Empresa empresas = new Empresa();
+		System.out.println("El sistema permite MOSTRAR TODAS las empresas,Ej. 'cocacola' "+empresas.getIdEmpresa());
+
 	    Empresa empresa1 = new Empresa();
 		System.out.println("El sistema permite CREAR UNA empresa,Ej. 'cocacola' "+empresa1.getIdEmpresa());
 		//EL sistema permite cambiar empresa
