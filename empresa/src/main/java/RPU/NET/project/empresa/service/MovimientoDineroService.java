@@ -1,11 +1,13 @@
 package RPU.NET.project.empresa.service;
 
+import RPU.NET.project.empresa.entity.Empleado;
 import RPU.NET.project.empresa.entity.Empresa;
 import RPU.NET.project.empresa.entity.MovimientoDinero;
 import RPU.NET.project.empresa.repository.IMovimientodineroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +15,10 @@ import java.util.Optional;
 public class MovimientoDineroService implements IMovimientoDineroService{
     @Autowired
     private IMovimientodineroRepository movimientodineroRepository;
+    @Autowired
+    private IEmpleadoService empleadoService;
+
+
     @Override
     public MovimientoDinero findById(long id) {
         Optional<MovimientoDinero> movimientoDinero = movimientodineroRepository.findById((long) id);
@@ -33,9 +39,21 @@ public class MovimientoDineroService implements IMovimientoDineroService{
 
     @Override
     public void deletemovimientoDineroEmpresa(long id) {
-        movimientodineroRepository.deleteById((long) id);
-    }
+        List<Empleado> empleados = empleadoService.getEmpresaById(id);
 
+        for (int x = 0; x < empleados.size(); x++) {
+            Empleado empleado = new Empleado();
+            empleado = empleados.get(x);
+            long newid = (long) empleado.getIdEmpleado();
+            List<MovimientoDinero> movimientos1 = movimientodineroRepository.getEmpleadoById(newid);
+            for (int y = 0; y < movimientos1.size(); y++) {
+                MovimientoDinero movimiento = new MovimientoDinero();
+                movimiento = movimientos1.get(y);
+                long new2id = (long) movimiento.getIdmovimientodinero();
+                movimientodineroRepository.deleteById((long) new2id);
+            }
+        }
+    }
     @Override
     public List<MovimientoDinero> findByAll() {
 
