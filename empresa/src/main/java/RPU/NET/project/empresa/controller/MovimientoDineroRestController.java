@@ -61,23 +61,15 @@ public class MovimientoDineroRestController {
     @DeleteMapping("/movimiento/{id}")
     public void deletemovimientoDinero(@PathVariable long id) {
 
-
         movimientoDineroService.deletemovimientoDinero(id);
 
     }
     @GetMapping("/empresa/{id}/movimiento")
-    public List<List<MovimientoDinero>> findByIdmovimiento(@PathVariable long id){
-        List<List<MovimientoDinero>> movimientos2 =new ArrayList<>();
-        List<Empleado> empleados=empleadoService.getEmpresaById(id);
-        Empleado empleado = new Empleado();
-        for (int x=0; x<empleados.size(); x++){
-            empleado=empleados.get(x);
-            int newid= (int) empleado.getIdEmpleado();
-            List<MovimientoDinero> movimientos =movimientoDineroService.getEmpleadoById(newid);
-            movimientos2.add(movimientos);
-        }
-        return movimientos2;
+    public List<List<MovimientoDinero>> findByIdmovimiento(@PathVariable long id) {
+        return movimientoDineroService.findByIdmovimiento(id);
+
     }
+
 
     @DeleteMapping("/empresa/{id}/movimiento")
     public void deletemovimientoDineroEmpresa(@PathVariable long id) {

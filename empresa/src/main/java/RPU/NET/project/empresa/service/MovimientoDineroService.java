@@ -33,8 +33,17 @@ public class MovimientoDineroService implements IMovimientoDineroService{
 
     @Override
     public List<List<MovimientoDinero>> findByIdmovimiento(long id) {
-        Optional<MovimientoDinero> movimientoDinero=movimientodineroRepository.findById((long) id);
-        return (List<List<MovimientoDinero>>) movimientoDinero.get();
+        List<List<MovimientoDinero>> movimientos2 =new ArrayList<>();
+        List<Empleado> empleados=empleadoService.getEmpresaById(id);
+        Empleado empleado = new Empleado();
+        for (int x=0; x<empleados.size(); x++){
+            empleado=empleados.get(x);
+            int newid= (int) empleado.getIdEmpleado();
+            List<MovimientoDinero> movimientos =movimientodineroRepository.getEmpleadoById((long) newid);
+            movimientos2.add(movimientos);
+        }
+        return movimientos2;
+
     }
 
     @Override
