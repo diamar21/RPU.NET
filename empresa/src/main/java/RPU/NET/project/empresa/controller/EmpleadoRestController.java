@@ -48,7 +48,7 @@ public class EmpleadoRestController {
     @DeleteMapping("/empleado/{id}")
     public void deleteEmpleado(@PathVariable long id) {
 
-        // UsuarioRepository.deleteById((long) id);
+
         empleadoService.deleteEmpleado((long) id);
 
     }
