@@ -2,7 +2,7 @@ package RPU.NET.project.empresa.service;
 
 import RPU.NET.project.empresa.entity.Empresa;
 import RPU.NET.project.empresa.entity.MovimientoDinero;
-
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 import java.util.List;
@@ -16,7 +16,7 @@ public interface IMovimientoDineroService {
     public MovimientoDinero updateMovimientoDinero(MovimientoDinero movimientoDinero);
     public void deletemovimientoDinero(long id);
     public List<List<MovimientoDinero>> findByIdmovimiento(long id);
-
+    public void deletemovimientoDineroEmpresa(long id);
 
 }
 

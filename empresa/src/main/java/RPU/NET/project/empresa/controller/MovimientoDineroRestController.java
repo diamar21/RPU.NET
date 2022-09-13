@@ -79,4 +79,16 @@ public class MovimientoDineroRestController {
         return movimientos2;
     }
 
+    @DeleteMapping("/empresa/{id}/movimiento")
+    public void deletemovimientoDineroEmpresa(@PathVariable long id) {
+        List<Empleado> empleados=empleadoService.getEmpresaById(id);
+        for (int x=0; x<empleados.size(); x++) {
+            Empleado empleado = new Empleado();
+            empleado = empleados.get(x);
+            int newid = (int) empleado.getIdEmpleado();
+
+            movimientoDineroService.deletemovimientoDinero(newid);
+        }
+    }
+
 }
