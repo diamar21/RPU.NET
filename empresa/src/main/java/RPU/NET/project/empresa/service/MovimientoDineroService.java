@@ -30,6 +30,12 @@ public class MovimientoDineroService implements IMovimientoDineroService{
         Optional<MovimientoDinero> movimientoDinero=movimientodineroRepository.findById((long) id);
         return (List<List<MovimientoDinero>>) movimientoDinero.get();
     }
+
+    @Override
+    public void deletemovimientoDineroEmpresa(long id) {
+        movimientodineroRepository.deleteById((long) id);
+    }
+
     @Override
     public List<MovimientoDinero> findByAll() {
 
