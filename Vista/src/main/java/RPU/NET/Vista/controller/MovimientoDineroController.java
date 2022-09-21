@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController     // api rest
 @RequestMapping("/api")   // solicitud una ruta
-public class MovimientoDineroRestController {
+public class MovimientoDineroController {
     @Autowired
     private IMovimientoDineroService movimientoDineroService;
     @Autowired
