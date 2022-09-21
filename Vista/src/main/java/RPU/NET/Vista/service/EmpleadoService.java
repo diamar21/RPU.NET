@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmpleadoService implements IEmpleadoService{
+public  class EmpleadoService implements IEmpleadoService{
 @Autowired
 private IEmpleadoRepository empleadoRepository;
 
@@ -27,10 +27,14 @@ private IEmpleadoRepository empleadoRepository;
         return empleados;
 
     }
+
+
+
     public Empleado updateIdEmpleado(long id, Empleado empleado) {
         Empleado updateIdEmpleado = empleadoRepository.save(empleado);
         return updateIdEmpleado;
     }
+
 
 
     @Override
