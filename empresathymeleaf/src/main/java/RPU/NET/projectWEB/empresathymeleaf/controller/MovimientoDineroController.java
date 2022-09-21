@@ -1,22 +1,17 @@
-package RPU.NET.project.empresa.controller;
+package RPU.NET.projectWEB.empresathymeleaf.controller;
 
-import RPU.NET.project.empresa.entity.Empleado;
-import RPU.NET.project.empresa.entity.Empresa;
-import RPU.NET.project.empresa.entity.MovimientoDinero;
-import RPU.NET.project.empresa.entity.Rol;
-import RPU.NET.project.empresa.service.IEmpleadoService;
-import RPU.NET.project.empresa.service.IEmpresaService;
-import RPU.NET.project.empresa.service.IMovimientoDineroService;
+import RPU.NET.projectWEB.empresathymeleaf.entity.MovimientoDinero;
+import RPU.NET.projectWEB.empresathymeleaf.service.IEmpleadoService;
+import RPU.NET.projectWEB.empresathymeleaf.service.IEmpresaService;
+import RPU.NET.projectWEB.empresathymeleaf.service.IMovimientoDineroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
-@RestController     // api rest
-@RequestMapping("/api")   // solicitud una ruta
-public class MovimientoDineroRestController {
+@Controller     // api rest
+public class MovimientoDineroController {
     @Autowired
     private IMovimientoDineroService movimientoDineroService;
     @Autowired

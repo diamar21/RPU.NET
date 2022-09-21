@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">  <!--colocar las etiquetas de thymeleaf-->
+<head>
+    <!-- Comentarios -->
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/css/bootstrap.min.css}" >
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/6.0.0/css/all.min.css}" >
+</head>
+<body>
+     <!--<header th:replace="layout/plantilla :: header"></header>-->
+
+     <a th:href="@{/}">Home</a>
+    <br>
+    <h2>MENU</h2>
+    <p th:text="${mensaje}"></p>   <!-- mostrar un parrafo del indexController-->
+     <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+         <button type="button" class="btn btn-primary">EMPLEADOS</button>
+         <button type="button" class="btn btn-secondary">EMPRESAS</button>
+         <button type="button" class="btn btn-danger">MOVIMIENTOS DE DINERO</button>
+
+     </div>
+    <!--<footer th:replace="layout/plantilla :: footer"></footer>-->
+     <script th:src="stylesheet" th:href="@{/webjars/bootstrap/5.1.0/js/bootstrap.bundle.min.js}"></script>
+     <script th:src="stylesheet" th:href="@{/webjars/popper/js/2.9.3/js/umd/popper.min.js}"></script>
+
+</body>
+</html>
