@@ -22,25 +22,23 @@ import java.util.logging.Logger;
 public class EmpleadoController {
     @Autowired
     private IEmpleadoService empleadoService;
-
     @Autowired
     private IEmpresaService empresaService;
-
     private final Logger LOG = Logger.getLogger(""+ EmpresaController.class);
     //Listar Empleado
-    @GetMapping("/usuarios/list")
+    @GetMapping("/empleado/list")
     public String getListEmpleado(Model model){
         LOG.log(Level.INFO,"getListEmpleado");
         List<Empleado> empleados = empleadoService.findByAll();
         for (Empleado user : empleados)
             System.out.println(user.toString());
         model.addAttribute("empleados", empleados);
-        return "Usuarios/list";
+        return "list";
     }
     //Crear Empleado
-        @GetMapping("/usuarios/crear")
-        public String createUsuario(Model modelo){
-            LOG.log(Level.INFO,"createUsuario");
+        @GetMapping("/empleado/crear")
+        public String createempelado(Model modelo){
+            LOG.log(Level.INFO,"createempleado");
             //Empleado + Rol
             Empleado empleado = new Empleado();
             empleado.setRol(Rol.administrador);
@@ -48,22 +46,19 @@ public class EmpleadoController {
             //Empresa
             Empresa empresa = new Empresa();
             modelo.addAttribute("Empresa",empresa);
-
-            return "usuarios/modificar";
+            return "empleado/modificar";
     }
     //Guardar Empleado
     @PostMapping("/guardar")
     public String guardarEmpleado(@Valid Empleado empleado, BindingResult error, Model modelo){
         LOG.log(Level.INFO,"guardarEmpleado");
-
         for(ObjectError e : error.getAllErrors())
             System.out.println(e.toString());
         if(error.hasErrors()) {
-
-            return "Usuarios/modificar";
+            return "empleado/modificar";
         }
         empleado = empleadoService.createEmpleado(empleado);
-        return "redirect:/usuarios/list";
+        return "redirect:/empleado/list";
     }
     //Editar Empleado
     @RequestMapping(value = "/editarEmpleado/{id}", method = RequestMethod.GET)
@@ -72,20 +67,14 @@ public class EmpleadoController {
         Empleado empleado = empleadoService.findById(id);
         empleado.setRol(Rol.operativo);
         modelo.addAttribute("empleado", empleado);
-
         List<Empresa> empresa=empresaService.findAll();
         modelo.addAttribute("empresa",empresa);
-        return "usuarios/modificar";
+        return "empleado/modificar";
     }
-
-
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.GET)
     public String deleteEmpleado(@PathVariable("id") long id, Model modelo) {
         LOG.log(Level.INFO, "deleteEmpleado");
         empleadoService.deleteEmpleado(id);
-        return "redirect:/usuarios/listar";
+        return "redirect:/empleado/listar";
     }
-
-
-
 }
