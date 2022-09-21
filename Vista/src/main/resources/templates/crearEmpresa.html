@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>CREAR EMPRESA</title>
@@ -25,22 +25,29 @@
 
   <div class="container"><h1>CREAR EMPRESA</h1></div>
 
-  <form action="/action_page.php">
+  <form action="/action_page.php"th:action="@{/guardar}" method="post" th:object="${empresa}>
     <div class="form-group">
       <label for="nombre_empresa">Nombre Empresa:</label>
-      <input type="text" class="form-control" id="nombre_empresa">
-    </div>
+      <input type="text" class="form-control" id="nombre_empresa" th:field="*{nombreEmpresa}">
+      <span th:if="${#fields.hasErrors('nombreEmpresa')}" th:errors="*{nombreEmpresa}">Error nombre Empresa</span>
+
+     </div>
     <div class="form-group">
       <label for="dir">Direccion Empresa:</label>
-      <input type="text" class="form-control" id="dir">
-    </div>
+      <input type="text" class="form-control" id="dir" th:field="*{direccionEmpresa}>
+      <span th:if="${#fields.hasErrors('direccionEmpresa')}" th:errors="*{direccionEmpresa}">Error Direccion Empresa</span>
+     </div>
     <div class="form-group">
       <label for="tele">Telefono Empresa:</label>
-      <input type="text" class="form-control" id="tele">
+      <input type="text" class="form-control" id="tele" th:field="*{telefonoEmpresa}>
+      <span th:if="${#fields.hasErrors('telefonoEmpresa')}" th:errors="*{telefonoEmpresa}">Error Telefono Empresa</span>
+
     </div>
     <div class="form-group">
       <label for="Nit">Nit Empresa:</label>
-      <input type="text" class="form-control" id="nit">
+      <input type="text" class="form-control" id="nit" th:field="*{NITEmpresa}>
+      <span th:if="${#fields.hasErrors('NITEmpresa')}" th:errors="*{NITEmpresa}">Error NIT Empresa</span>
+
     </div>
 
     <button type="submit" class="btn btn-warning">Enviar</button>

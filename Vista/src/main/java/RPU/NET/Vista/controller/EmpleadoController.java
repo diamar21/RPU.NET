@@ -24,7 +24,7 @@ public class EmpleadoController {
     private IEmpleadoService empleadoService;
     @Autowired
     private IEmpresaService empresaService;
-    private final Logger LOG = Logger.getLogger(""+ EmpresaController.class);
+    private final Logger LOG = Logger.getLogger(""+ EmpleadoController.class);
     //Listar Empleado
     @GetMapping("/empleado/list")
     public String getListEmpleado(Model model){
