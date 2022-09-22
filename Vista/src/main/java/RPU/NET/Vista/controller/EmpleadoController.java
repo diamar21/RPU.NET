@@ -33,7 +33,7 @@ public class EmpleadoController {
         for (Empleado user : empleados)
             System.out.println(user.toString());
         model.addAttribute("empleados", empleados);
-        return "list";
+        return "empleado/list";
     }
     //Crear Empleado
         @GetMapping("/empleado/crear")
@@ -46,7 +46,7 @@ public class EmpleadoController {
             //Empresa
             Empresa empresa = new Empresa();
             modelo.addAttribute("Empresa",empresa);
-            return "empleado/modificar";
+            return "empleado/crearEmpleado";
     }
     //Guardar Empleado
     @PostMapping("/guardar")
@@ -55,10 +55,10 @@ public class EmpleadoController {
         for(ObjectError e : error.getAllErrors())
             System.out.println(e.toString());
         if(error.hasErrors()) {
-            return "empleado/modificar";
+            return "empleado/crearEmpleado";
         }
         empleado = empleadoService.createEmpleado(empleado);
-        return "redirect:/empleado/list";
+        return "redirect:/empleado/crearEmpleado";
     }
     //Editar Empleado
     @RequestMapping(value = "/editarEmpleado/{id}", method = RequestMethod.GET)
@@ -69,12 +69,12 @@ public class EmpleadoController {
         modelo.addAttribute("empleado", empleado);
         List<Empresa> empresa=empresaService.findAll();
         modelo.addAttribute("empresa",empresa);
-        return "empleado/modificar";
+        return "empleado/editarEmpleado";
     }
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.GET)
     public String deleteEmpleado(@PathVariable("id") long id, Model modelo) {
         LOG.log(Level.INFO, "deleteEmpleado");
         empleadoService.deleteEmpleado(id);
-        return "redirect:/empleado/listar";
+        return "redirect:/empleado/list";
     }
 }

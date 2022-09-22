@@ -33,7 +33,7 @@ public class EmpresaController {
         LOG.log(Level.INFO,"getListEmpresa");
         List<Empresa> empresas = empresaService.findAll();
         model.addAttribute("empresas", empresas);
-        return "list";
+        return "empresa/list";
     }
     //Crear Empresa
     @GetMapping("/empresa/crear")
@@ -47,7 +47,7 @@ public class EmpresaController {
         empresa.setTelefonoEmpresa("1234567");
         modelo.addAttribute("empresa", empresa);
 
-        return "empleado/modificar";
+        return "empresa/crearEmpresa";
     }
 
     //Guardar Empresa
@@ -57,10 +57,10 @@ public class EmpresaController {
         for(ObjectError e : error.getAllErrors())
             System.out.println(e.toString());
         if(error.hasErrors()) {
-            return "empresa/modificar";
+            return "empresa/crearEmpresa";
         }
         empresa = empresaService.createEmpresa(empresa);
-        return "redirect:/empresa/list";
+        return "redirect:/empresa/crearEmpresa";
     }
 
     //Editar Empresa
@@ -75,14 +75,14 @@ public class EmpresaController {
         modelo.addAttribute("empresa", empresa);
         List<Empresa> empresas=empresaService.findAll();
         modelo.addAttribute("empresa",empresas);
-        return "empleado/modificar";
+        return "empresa/editarEmpresa";
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.GET)
     public String deleteEmpresa(@PathVariable("id") long id, Model modelo) {
         LOG.log(Level.INFO, "deleteEmpresa");
         empresaService.deleteEmpresa(id);
-        return "redirect:/empresa/listar";
+        return "redirect:/empresa/list";
     }
 
     }
