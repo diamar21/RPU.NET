@@ -28,15 +28,15 @@ public class EmpresaController {
     private IMovimientoDineroService movimientoDineroService;
     private final Logger LOG = Logger.getLogger(""+ EmpresaController.class);
     //Listar Empresa
-    @GetMapping("/empresa/list")
+    @GetMapping("empresa/list")
     public String getListEmpresa(Model model){
         LOG.log(Level.INFO,"getListEmpresa");
         List<Empresa> empresas = empresaService.findAll();
         model.addAttribute("empresas", empresas);
-        return "list";
+        return "empresa/list";
     }
     //Crear Empresa
-    @GetMapping("/empresa/crear")
+    @GetMapping("empresa/crear")
     public String createempresa(Model modelo){
         LOG.log(Level.INFO,"createempresa");
         //Empresa + Nombre + Direccion + Telefono + NIT
@@ -51,7 +51,7 @@ public class EmpresaController {
     }
 
     //Guardar Empresa
-    @PostMapping("/guardar")
+    @PostMapping("empresa/guardar")
     public String guardarEmpresa(@Valid Empresa empresa, BindingResult error, Model modelo){
         LOG.log(Level.INFO,"guardarEmpresa");
         for(ObjectError e : error.getAllErrors())
@@ -60,11 +60,11 @@ public class EmpresaController {
             return "empresa/modificar";
         }
         empresa = empresaService.createEmpresa(empresa);
-        return "redirect:/empresa/list";
+        return "empresa/list";
     }
 
     //Editar Empresa
-    @RequestMapping(value = "/editarEmpresa/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "empresa/editarEmpresa/{id}", method = RequestMethod.GET)
     public String editEmpresa(@PathVariable("id") long id, Model modelo){
         LOG.log(Level.INFO,"editEmpresa");
         Empresa empresa = empresaService.findById(id);
