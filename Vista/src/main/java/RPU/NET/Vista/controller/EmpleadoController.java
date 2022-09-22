@@ -26,7 +26,7 @@ public class EmpleadoController {
     private IEmpresaService empresaService;
     private final Logger LOG = Logger.getLogger(""+ EmpleadoController.class);
     //Listar Empleado
-    @GetMapping("/empleado/list")
+    @GetMapping("empleado/list")
     public String getListEmpleado(Model model){
         LOG.log(Level.INFO,"getListEmpleado");
         List<Empleado> empleados = empleadoService.findByAll();
@@ -36,7 +36,7 @@ public class EmpleadoController {
         return "list";
     }
     //Crear Empleado
-        @GetMapping("/empleado/crear")
+        @GetMapping("empleado/crear")
         public String createempelado(Model modelo){
             LOG.log(Level.INFO,"createempleado");
             //Empleado + Rol
@@ -49,7 +49,7 @@ public class EmpleadoController {
             return "empleado/modificar";
     }
     //Guardar Empleado
-    @PostMapping("/guardar")
+    @PostMapping("empleado/guardar")
     public String guardarEmpleado(@Valid Empleado empleado, BindingResult error, Model modelo){
         LOG.log(Level.INFO,"guardarEmpleado");
         for(ObjectError e : error.getAllErrors())
@@ -58,10 +58,10 @@ public class EmpleadoController {
             return "empleado/modificar";
         }
         empleado = empleadoService.createEmpleado(empleado);
-        return "redirect:/empleado/list";
+        return "empleado/list";
     }
     //Editar Empleado
-    @RequestMapping(value = "/editarEmpleado/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "empleado/editarEmpleado/{id}", method = RequestMethod.GET)
     public String editEmpleado(@PathVariable("id") long id, Model modelo){
         LOG.log(Level.INFO,"editEmpleado");
         Empleado empleado = empleadoService.findById(id);
@@ -71,10 +71,10 @@ public class EmpleadoController {
         modelo.addAttribute("empresa",empresa);
         return "empleado/modificar";
     }
-    @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "empleado/eliminar/{id}", method = RequestMethod.GET)
     public String deleteEmpleado(@PathVariable("id") long id, Model modelo) {
         LOG.log(Level.INFO, "deleteEmpleado");
         empleadoService.deleteEmpleado(id);
-        return "redirect:/empleado/listar";
+        return "empleado/listar";
     }
 }
