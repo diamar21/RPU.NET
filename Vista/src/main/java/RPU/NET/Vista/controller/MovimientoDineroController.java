@@ -1,16 +1,21 @@
 package RPU.NET.Vista.controller;
-
+import RPU.NET.Vista.entity.Empresa;
 import RPU.NET.Vista.entity.MovimientoDinero;
 import RPU.NET.Vista.service.IEmpleadoService;
 import RPU.NET.Vista.service.IEmpresaService;
 import RPU.NET.Vista.service.IMovimientoDineroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-
+import javax.validation.Valid;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@RestController     // api rest
-@RequestMapping("/api")   // solicitud una ruta
+@Controller
 public class MovimientoDineroController {
     @Autowired
     private IMovimientoDineroService movimientoDineroService;
@@ -20,56 +25,57 @@ public class MovimientoDineroController {
     @Autowired
     private IEmpleadoService empleadoService;
 
+    private final Logger LOG = Logger.getLogger(""+ EmpleadoController.class);
 
-    @GetMapping("/movimiento/{id}") // llama el metodo get dentro de la ruta /api/movimientodinero/{id}
-    // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
-    public MovimientoDinero findById(@PathVariable long id) {
 
-        return movimientoDineroService.findById(id);
+    //Listar MVD
+    @GetMapping("MovimientoDinero/list")
+    public String getListMovimientoDinero(Model model){
+        LOG.log(Level.INFO,"getListMovimientoDinero");
+        List<MovimientoDinero> movimientoDineros = movimientoDineroService.findByAll();
+        for (MovimientoDinero user : movimientoDineros)
+            System.out.println(user.toString());
+        model.addAttribute("movimientoDineros", movimientoDineros);
+        return "list";
     }
-
-    @GetMapping("/movimiento") // llama el metodo get dentro de la ruta /api/rol
-    public List<MovimientoDinero> findByAll() {   // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
-       return movimientoDineroService.findByAll();
+    //Crear MVD
+    @GetMapping("empleado/crear")
+    public String createMovimientoDinero(Model modelo){
+        LOG.log(Level.INFO,"createMovimientoDinero");
+        //Monto + Concepto
+        MovimientoDinero movimientoDinero = new MovimientoDinero();
+        List<MovimientoDinero> movimientoDineros= movimientoDineroService.findByAll();
+        modelo.addAttribute("movimientoDinero", movimientoDinero);
+        return "crearMovimientoDinero";
     }
-
-    @GetMapping("/movimiento/empleado/{id}") // llama el metodo get dentro de la ruta /api/rol
-    public List<MovimientoDinero> getEmpleadoById(@PathVariable  long id) {   // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
-
-        return movimientoDineroService.getEmpleadoById(id);
+    //Guardar MVD
+    @PostMapping("MovimientoDinero/guardar")
+    public String guardarMovimientoDinero(@Valid MovimientoDinero movimientoDinero, BindingResult error, Model modelo){
+        LOG.log(Level.INFO,"guardarMovimientoDinero");
+        for(ObjectError e : error.getAllErrors())
+            System.out.println(e.toString());
+        if(error.hasErrors()) {
+            return "MovimientoDinero/modificar";
+        }
+        movimientoDinero=movimientoDineroService.createMovimientoDinero(movimientoDinero);
+        return "MovimientoDinero/list";
     }
-
-
-    @PostMapping("/movimiento")   //crea un nuevo rol con el id =3
-    public MovimientoDinero createMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero) {
-       return movimientoDineroService.createMovimientoDinero(movimientoDinero);
-
+    //Editar MVD
+    @RequestMapping(value = "MovimientoDinero/editarMovimientoDinero/{id}", method = RequestMethod.GET)
+    public String editMovimientoDinero(@PathVariable("id") long id, Model modelo){
+        LOG.log(Level.INFO,"editMovimientoDinero");
+        MovimientoDinero movimientoDinero= movimientoDineroService.findById(id);
+        modelo.addAttribute("movimientoDinero", movimientoDinero);
+        List<Empresa> empresa=empresaService.findAll();
+        modelo.addAttribute("empresa",empresa);
+        return "MovimientoDinero/modificar";
     }
-
-    //@PutMapping("/movimientodinero/{id}")
-   @PatchMapping("/movimiento")
-    public MovimientoDinero updateMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero) {
-
-
-      return movimientoDineroService.updateMovimientoDinero(movimientoDinero);
-    }
-    @DeleteMapping("/movimiento/{id}")
-    public void deletemovimientoDinero(@PathVariable long id) {
-
+    //Borrar MVD
+    @RequestMapping(value = "MovimientoDinero/eliminar/{id}", method = RequestMethod.GET)
+    public String deleteMovimientoDinero(@PathVariable("id") long id, Model modelo) {
+        LOG.log(Level.INFO, "deleteMovimientoDinero");
         movimientoDineroService.deletemovimientoDinero(id);
-
-    }
-    @GetMapping("/empresa/{id}/movimiento")
-    public List<List<MovimientoDinero>> findByIdmovimiento(@PathVariable long id) {
-        return movimientoDineroService.findByIdmovimiento(id);
-
-    }
-
-
-    @DeleteMapping("/empresa/{id}/movimiento")
-    public void deletemovimientoDineroEmpresa(@PathVariable long id) {
-            movimientoDineroService.deletemovimientoDineroEmpresa(id);
-
+        return "MovimientoDinero/listar";
     }
 
 }
