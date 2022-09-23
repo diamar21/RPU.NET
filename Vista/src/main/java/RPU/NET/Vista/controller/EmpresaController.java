@@ -43,13 +43,9 @@ public class EmpresaController {
         LOG.log(Level.INFO,"createempresa");
         //Empresa + Nombre + Direccion + Telefono + NIT
         Empresa empresa = new Empresa();
-        empresa.setnombreEmpresa("Administración");
-        empresa.setDireccionEmpresa("Carrera 15 #25-40");
-        empresa.setNITEmpresa("850235587-9");
-        empresa.setTelefonoEmpresa("1234567");
+        List<Empresa> empresas=empresaService.findAll();
         modelo.addAttribute("empresa", empresa);
-
-        return "empleado/modificar";
+        return "crearempresa";
     }
 
     //Guardar Empresa
@@ -62,7 +58,7 @@ public class EmpresaController {
             return "empresa/modificar";
         }
         empresa = empresaService.createEmpresa(empresa);
-        return "empresa/list";
+        return "crearempresa";
     }
 
     //Editar Empresa
@@ -70,14 +66,9 @@ public class EmpresaController {
     public String editEmpresa(@PathVariable("id") long id, Model modelo){
         LOG.log(Level.INFO,"editEmpresa");
         Empresa empresa = empresaService.findById(id);
-        empresa.setnombreEmpresa("Coca Cola");
-        empresa.setDireccionEmpresa("Carrera 25 #15-30");
-        empresa.setNITEmpresa("300235587-7");
-        empresa.setTelefonoEmpresa("9876543");
-        modelo.addAttribute("empresa", empresa);
         List<Empresa> empresas=empresaService.findAll();
         modelo.addAttribute("empresa",empresas);
-        return "empleado/modificar";
+        return "empresalist";
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.GET)
