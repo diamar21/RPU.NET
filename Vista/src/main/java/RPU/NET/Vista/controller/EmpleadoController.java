@@ -46,7 +46,7 @@ public class EmpleadoController {
             //Empresa
             Empresa empresa = new Empresa();
             modelo.addAttribute("Empresa",empresa);
-            return "empleado/modificar";
+            return "crearEmpleado";
     }
     //Guardar Empleado
     @PostMapping("empleado/guardar")
