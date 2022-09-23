@@ -43,13 +43,12 @@ public class EmpresaController {
         LOG.log(Level.INFO,"createempresa");
         //Empresa + Nombre + Direccion + Telefono + NIT
         Empresa empresa = new Empresa();
-        empresa.setnombreEmpresa("Administración");
-        empresa.setDireccionEmpresa("Carrera 15 #25-40");
-        empresa.setNITEmpresa("850235587-9");
-        empresa.setTelefonoEmpresa("1234567");
+        empresa.setnombreEmpresa("");
+        empresa.setDireccionEmpresa("");
+        empresa.setNITEmpresa("");
+        empresa.setTelefonoEmpresa("");
         modelo.addAttribute("empresa", empresa);
-
-        return "empleado/modificar";
+        return "empresalist";
     }
 
     //Guardar Empresa
