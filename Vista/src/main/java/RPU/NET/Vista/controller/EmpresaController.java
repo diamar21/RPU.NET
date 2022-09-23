@@ -32,8 +32,10 @@ public class EmpresaController {
     public String getListEmpresa(Model model){
         LOG.log(Level.INFO,"getListEmpresa");
         List<Empresa> empresas = empresaService.findAll();
+        for (Empresa user : empresas)
+            System.out.println(user.toString());
         model.addAttribute("empresas", empresas);
-        return "empresa/list";
+        return "empresalist";
     }
     //Crear Empresa
     @GetMapping("empresa/crear")
