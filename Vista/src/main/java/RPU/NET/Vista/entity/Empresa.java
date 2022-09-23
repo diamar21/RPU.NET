@@ -9,16 +9,16 @@ public class Empresa {
     @Column(name = "id_Empresa", nullable = false)
     private long idEmpresa;
     @Column(name = "nombre_Empresa", nullable = false)
-    private String nombreEmpresa;
+    public String nombreEmpresa;
 
     @Column(name = "NIT_empresa", nullable = false)
-    private String NITEmpresa;
+    public String NITEmpresa;
 
     @Column(name = "telefono_Empresa", nullable = false)
-    private String telefonoEmpresa;
+    public String telefonoEmpresa;
 
     @Column(name = "direccion_Empresa", nullable = false)
-    private String direccionEmpresa;
+    public String direccionEmpresa;
 
    /* private MovimientoDinero movimientoDineros;
 
