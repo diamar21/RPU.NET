@@ -25,7 +25,7 @@
 
   <div class="container"><h1>CREAR EMPRESA</h1></div>
 
-  <form action="/action_page.php"th:action="@{/guardar}" method="post" th:object="${empresa}>
+  <form action="/action_page.php"th:action="@{empresa/guardar}" method="post" th:object="${empresa}>
     <div class="form-group">
       <label for="nombre_empresa">Nombre Empresa:</label>
       <input type="text" class="form-control" id="nombre_empresa" th:field="*{nombreEmpresa}">
