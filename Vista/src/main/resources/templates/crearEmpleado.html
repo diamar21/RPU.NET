@@ -28,7 +28,7 @@
 
   <div class="container"><h1>CREAR EMPLEADO</h1></div>
 
-  <form action="/action_page.php" th:action="@{/guardar}" method="post" th:object="${empleado}>
+  <form action="/action_page.php" th:action="@{crearEmpleado}" method="post" th:object="${empleado}>
     <div class="form-group">
       <label for="Name">Nombre Empleado:</label>
       <input type="text" class="form-control" id="Name" th:field="*{nombreEmpleado}">
