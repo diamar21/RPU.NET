@@ -11,11 +11,11 @@ public class Empleado {
     @Id // decimos qie idrol es la Primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // autoincremental del id
     @Column(name = "id_empleado", nullable = false)
-    private long idEmpleado;
+    public long idEmpleado;
     @Column(name = "nombre", nullable = false)
     private String nombreEmpleado;
     @Column(name = "correo", nullable = false)
-    private String correo;
+    public String correo;
 
     @Column(name = "telefono", nullable = false)
     private String telefono;
