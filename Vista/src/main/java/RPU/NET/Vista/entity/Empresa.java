@@ -7,7 +7,7 @@ public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Empresa", nullable = false)
-    private long idEmpresa;
+    public long idEmpresa;
     @Column(name = "nombre_Empresa", nullable = false)
     public String nombreEmpresa;
 
