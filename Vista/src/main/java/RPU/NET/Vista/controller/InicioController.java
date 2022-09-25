@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
-public class InicioController {
+public class inicioController {
 
     @GetMapping("/")
     public String Inicio(){
