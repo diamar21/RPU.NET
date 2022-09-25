@@ -44,7 +44,7 @@ public class EmpleadoController {
             Empresa empresa = new Empresa();
             List<Empresa> empresas= empresaService.findAll();
             modelo.addAttribute("Empresa",empresa);
-            return "empleadoslist";
+            return "empleadoCrear";
     }
     //Guardar Empleado
     @PostMapping("empleado/guardar")
