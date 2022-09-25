@@ -36,10 +36,10 @@ public class MovimientoDineroController {
         for (MovimientoDinero user : movimientoDineros)
             System.out.println(user.toString());
         model.addAttribute("movimientoDineros", movimientoDineros);
-        return "list";
+        return "movimientoslist";
     }
     //Crear MVD
-    @GetMapping("empleado/crear")
+    @GetMapping("movimientoDinero/crear")
     public String createMovimientoDinero(Model modelo){
         LOG.log(Level.INFO,"createMovimientoDinero");
         //Monto + Concepto
