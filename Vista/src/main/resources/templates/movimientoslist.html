@@ -28,19 +28,18 @@
     <div class="table-responsive py-2">
       <table class="table table-striped">
         <tr>
-          <th>nombre Empresa</th>
-          <th>NIT Empresa</th>
-          <th>ID Empresa</th>
-          <th>Telefono Empresa</th>
-          <th>Direccion Empresa</th>
+          <th>Concepto</th>
+          <th>Monto</th>
+          <th>Fecha</th>
+          <th>Empleado</th>
         </tr>
 
-        <tr th:each="Empresa : ${empresas}">
-          <td th:text="${Empresa.nombreEmpresa}"></td>
-          <td th:text="${Empresa.NITEmpresa}"></td>
-          <td th:text="${Empresa.idEmpresa}"></td>
-          <td th:text="${Empresa.telefonoEmpresa}"></td>
-          <td th:text="${Empresa.direccionEmpresa}"></td>
+        <tr th:each="MovimientoDinero : ${movimientoDineros}">
+          <td th:text="${MovimientoDinero.conceptomovimiento}"></td>
+          <td th:text="${MovimientoDinero.montodelmovimiento}"></td>
+          <td th:text="${MovimientoDinero.createdAt}"></td>
+          <td th:text="${MovimientoDinero.empleado}"></td>
+
 
           <td><a href="editarEmpleado/" class= "btn btn-info">Modificar</a></td>
 
