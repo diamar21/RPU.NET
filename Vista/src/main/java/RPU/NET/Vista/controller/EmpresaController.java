@@ -57,7 +57,7 @@ public class EmpresaController {
             return "empresa/crear";
         }
         empresa = empresaService.createEmpresa(empresa);
-        return "empresa/list";
+        return "Success";
     }
 
     //Editar Empresa
