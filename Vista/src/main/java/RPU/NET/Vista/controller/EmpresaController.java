@@ -37,14 +37,14 @@ public class EmpresaController {
         model.addAttribute("empresas", empresas);
         return "empresalist";
     }
-    //Crear Empresa
+    //Crear Empresa este funciona
     @GetMapping("empresa/crear")
     public String createempresa(Model modelo){
         LOG.log(Level.INFO,"createempresa");
         //Empresa + Nombre + Direccion + Telefono + NIT
         Empresa empresa = new Empresa();
         modelo.addAttribute("empresa", empresa);
-        return "empresa/modificar";
+        return "empresaCrear";
     }
 
     //Guardar Empresa
@@ -54,7 +54,7 @@ public class EmpresaController {
         for(ObjectError e : error.getAllErrors())
             System.out.println(e.toString());
         if(error.hasErrors()) {
-            return "empresa/modificar";
+            return "empresa/crear";
         }
         empresa = empresaService.createEmpresa(empresa);
         return "empresa/list";
