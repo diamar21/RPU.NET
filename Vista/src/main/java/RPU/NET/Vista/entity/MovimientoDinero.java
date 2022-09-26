@@ -8,21 +8,21 @@ public class MovimientoDinero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // autoincremental del id
     @Column(name = "id_movimientodinero", nullable = false) //
-    private  long idmovimientodinero;
+    public   long idmovimientodinero;
     @Column(name = "concepto", nullable = false)
-    private String conceptomovimiento;
+    public String conceptomovimiento;
     @Column(name = "cantidad", nullable = false)
-    private float montodelmovimiento;
+    public float montodelmovimiento;
 
     @ManyToOne
     @JoinColumn(name="id_empleado", nullable = false)
-    private Empleado empleado;
+    public Empleado empleado;
 
     //private Empresa empresa;
     @Column(name = "FechaCreacion", nullable = false)
-    private LocalDate createdAt;
+    public LocalDate createdAt;
     @Column(name = "FechaActualizado", nullable = false)
-    private LocalDate updatedAt;
+    public LocalDate updatedAt;
 
   /* public Empleado getEmpleado() {
         return empleado;

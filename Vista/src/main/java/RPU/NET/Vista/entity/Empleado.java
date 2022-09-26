@@ -11,30 +11,30 @@ public class Empleado {
     @Id // decimos qie idrol es la Primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // autoincremental del id
     @Column(name = "id_empleado", nullable = false)
-    private long idEmpleado;
+    public long idEmpleado;
     @Column(name = "nombre", nullable = false)
-    private String nombreEmpleado;
+    public String nombreEmpleado;
     @Column(name = "correo", nullable = false)
-    private String correo;
+    public String correo;
 
     @Column(name = "telefono", nullable = false)
-    private String telefono;
+    public String telefono;
     @Column(name = "imagen", nullable = false)
-    private String imagen;
+    public String imagen;
     @Column(name = "FechaCreacion", nullable = false)
-    private LocalDate createdAt;
+    public LocalDate createdAt;
     @Column(name = "FechaActualizado", nullable = false)
-    private LocalDate updatedAt;
+    public LocalDate updatedAt;
 
     @ManyToOne // la relacion queda de la llave foranea mejora la codificacion
     @JoinColumn(name="id_Empresa", nullable = false)
-    private Empresa empresa;
+    public Empresa empresa;
 
     //private MovimientoDinero movimientoDinero;
 
 
     @Column(name = "rol")
-    private Rol rol;
+    public Rol rol;
 
     public Empresa getEmpresa() {
         return empresa;
