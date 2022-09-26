@@ -1,6 +1,6 @@
 package RPU.NET.projectWEB.empresathymeleaf.entity;
 
 public enum Rol {
-    operativo, administrador
+    ROLE_USER, ROLE_ADMIN
 
 }

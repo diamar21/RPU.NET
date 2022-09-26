@@ -4,11 +4,15 @@ import RPU.NET.projectWEB.empresathymeleaf.entity.MovimientoDinero;
 import RPU.NET.projectWEB.empresathymeleaf.service.IEmpleadoService;
 import RPU.NET.projectWEB.empresathymeleaf.service.IEmpresaService;
 import RPU.NET.projectWEB.empresathymeleaf.service.IMovimientoDineroService;
+import RPU.NET.projectWEB.empresathymeleaf.service.MovimientoDineroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Controller     // api rest
 public class MovimientoDineroController {
@@ -19,6 +23,16 @@ public class MovimientoDineroController {
 
     @Autowired
     private IEmpleadoService empleadoService;
+    private final Logger LOG= Logger.getLogger(""+MovimientoDineroController.class);
+    @GetMapping("/movimientos/list")
+    public String getListMovimientos (Model model,@PathVariable ("id") long id) {
+
+        LOG.log(Level.INFO, "getListMovimientos"); // se usan para buscar errores CADA CONTROLADOR DEBE TENER SU LOG
+        List<List<MovimientoDinero>> movimientosDinero = movimientoDineroService.findByIdmovimiento(id);
+        model.addAttribute("movimientosDinero", movimientosDinero);
+
+        return "movimientos/list";
+    }
 
 
     @GetMapping("/movimiento/{id}") // llama el metodo get dentro de la ruta /api/movimientodinero/{id}
