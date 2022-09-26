@@ -25,53 +25,49 @@ public class EmpleadoController {
     @Autowired
     private IEmpresaService empresaService;
     private final Logger LOG = Logger.getLogger(""+ EmpleadoController.class);
-    //Listar Empleado
-    @GetMapping("empleado/list")
-    public String getListEmpleado(Model model){
-        LOG.log(Level.INFO,"getListEmpleado");
-        List<Empleado> empleados = empleadoService.findByAll();
-        for (Empleado user : empleados)
-            System.out.println(user.toString());
+
+    @GetMapping("/empleado/list")
+    public String getlistEmpleado (Model model,@PathVariable ("id") long id) {
+
+        LOG.log(Level.INFO, "getListMovimientos");
+        List<Empleado> empleados=empleadoService.findByAll();
         model.addAttribute("empleados", empleados);
-        return "list";
+
+        return "empleado/list";
     }
-    //Crear Empleado
-        @GetMapping("empleado/crear")
-        public String createempelado(Model modelo){
-            LOG.log(Level.INFO,"createempleado");
-            Empleado empleado = new Empleado();
-            modelo.addAttribute("empleado", empleado);
-            Empresa empresa = new Empresa();
-            List<Empresa> empresas= empresaService.findAll();
-            modelo.addAttribute("Empresa",empresa);
-            return "empleadoCrear";
+
+
+    @GetMapping("/empleado/{id}")
+    public Empleado findById(@PathVariable long id) {
+
+        return empleadoService.findById(id);
     }
-    //Guardar Empleado
-    @PostMapping("empleado/guardar")
-    public String guardarEmpleado(@Valid Empleado empleado, BindingResult error, Model modelo){
-        LOG.log(Level.INFO,"guardarEmpleado");
-        for(ObjectError e : error.getAllErrors())
-            System.out.println(e.toString());
-        if(error.hasErrors()) {
-            return "crearEmpleado";
-        }
-        empleado = empleadoService.createEmpleado(empleado);
-        return "crearEmpleado";
+
+    @GetMapping("/empleado")
+    public List<Empleado> findByAll() {   // se agrega @PathVariable para que se pueda ingresar la variable id en @getmapping
+        return empleadoService.findByAll();
     }
-    //Editar Empleado
-    @RequestMapping(value = "empleado/editarEmpleado/{id}", method = RequestMethod.GET)
-    public String editEmpleado(@PathVariable("id") long id, Model modelo){
-        LOG.log(Level.INFO,"editEmpleado");
-        Empleado empleado = empleadoService.findById(id);
-        modelo.addAttribute("empleado", empleado);
-        List<Empresa> empresa=empresaService.findAll();
-        modelo.addAttribute("empresa",empresa);
-        return "empleadolist";
+
+    @GetMapping("/empleado/{id}")
+    public List<Empleado> getEmpresaById(@PathVariable  long id) {
+
+        return empleadoService.getEmpresaById(id);
     }
-    @RequestMapping(value = "empleado/eliminar/{id}", method = RequestMethod.GET)
-    public String deleteEmpleado(@PathVariable("id") long id, Model modelo) {
-        LOG.log(Level.INFO, "deleteEmpleado");
+    @PostMapping("/empleado")   //crea un nuevo rol con el id =3
+    public Empleado createEmpleado(@RequestBody Empleado empleado) {
+        return empleadoService.createEmpleado(empleado);
+
+    }
+    @PatchMapping("/empleado")
+    public Empleado updateEmpleado(@RequestBody Empleado empleado) {
+
+
+        return empleadoService.updateEmpleado(empleado);
+    }
+    @DeleteMapping("/empleado/{id}")
+    public void deleteEmpleado(@PathVariable long id) {
+
         empleadoService.deleteEmpleado(id);
-        return "empleadolist";
     }
+
 }
