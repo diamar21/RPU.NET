@@ -1,4 +1,5 @@
 package RPU.NET.Vista.controller;
+import RPU.NET.Vista.entity.Empleado;
 import RPU.NET.Vista.entity.Empresa;
 import RPU.NET.Vista.entity.MovimientoDinero;
 import RPU.NET.Vista.service.IEmpleadoService;
@@ -36,6 +37,7 @@ public class MovimientoDineroController {
         for (MovimientoDinero user : movimientoDineros)
             System.out.println(user.toString());
         model.addAttribute("movimientoDineros", movimientoDineros);
+
         return "movimientoslist";
     }
     //Crear MVD
