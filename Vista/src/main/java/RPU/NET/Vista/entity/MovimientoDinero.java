@@ -84,7 +84,7 @@ public class MovimientoDinero {
                 "idTransaction=" + idmovimientodinero +
                 ", concept='" + conceptomovimiento + '\'' +
                 ", amount=" + montodelmovimiento +
-              //  ", user=" + empleado +
+               ", user=" + empleado.getNombreEmpleado() +
                // ", enterprise=" + empresa +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
