@@ -30,26 +30,26 @@
         <div class="card">
             <div claas="card-body">
 
-                <!--<form th:action="@{/empresa/guardar}" method="post" th:object="${empresa}">
+                <form th:action="@{/empleado/guardar}" method="post" th:object="${empleado}">
                     <div hidden class="form-group">
-                        <label for= "idEmpresa">Id Empresa </label>
-                        <input type="text" class="form-control" placeholder="Id de Empresa" name="idEmpresa" th:field="*{idEmpresa}"/>
+                        <label for= "idEmpleado">Id Empleado </label>
+                        <input type="text" class="form-control" placeholder="Id del Empleado" name="idEmpresa" th:field="*{idEmpleado}"/>
                     </div>
                     <div class="form-group">
-                        <label for= "nombreEmpresa">Nombre Empresa </label>
-                        <input type="text" class="form-control" placeholder="Nombre Empresa" name="nombreEmpresa" th:field="*{nombreEmpresa}"/>
+                        <label for= "nombreEmpleado">Nombre Empleado </label>
+                        <input type="text" class="form-control" placeholder="Nombre Empleado" name="nombreEmpleado" th:field="*{nombreEmpleado}"/>
                     </div>
                     <div class="form-group">
-                        <label for= "NITEmpresa">NIT Empresa </label>
-                        <input type="text" class="form-control"  placeholder="NIT empresa" name="NITEmpresa" th:field="*{NITEmpresa}"/>
+                        <label for= "correo">correo </label>
+                        <input type="text" class="form-control"  placeholder="correo" name="correo" th:field="*{correo}"/>
                     </div>
                     <div class="form-group">
-                        <label for= "telefonoEmpresa">Telefono </label>
-                        <input type="text" class="form-control" placeholder="Telefono Empresa" name="telefonoEmpresa" th:field="*{telefonoEmpresa}"/>
+                        <label for= "telefono">Telefono </label>
+                        <input type="text" class="form-control" placeholder="Telefono " name="telefono" th:field="*{telefono}"/>
                     </div>
-                    <div class="form-group">
-                        <label for= "direccionEmpresa"> Direccion </label>
-                        <input type="text" class="form-control" placeholder="Direccion Empresa" name="direccionEmpresa" th:field="*{direccionEmpresa}"/>
+                    <div hidden class="form-group">
+                        <label for= "empleado.empresa">empleado.empresa </label>
+                        <input type="text" class="form-control" placeholder="empleado.empresa" name="empleado.empresa" th:field="*{empleado.empresa}"/>
                     </div>
                     <br>
                     <button type="submit" class ="btn btn-success">
@@ -61,14 +61,6 @@
         </div>
     </div>
 
-
--->
-
-
-
-    <!-- Left -->
-
-    <!-- Right -->
     <div>
         <a href="" class="me-4 text-reset">
             <i class="fab fa-facebook-f"></i>
