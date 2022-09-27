@@ -21,10 +21,7 @@ public class Empleado {
     public String telefono;
     @Column(name = "imagen", nullable = false)
     public String imagen;
-    @Column(name = "FechaCreacion", nullable = false)
-    public LocalDate createdAt;
-    @Column(name = "FechaActualizado", nullable = false)
-    public LocalDate updatedAt;
+
 
     @ManyToOne // la relacion queda de la llave foranea mejora la codificacion
     @JoinColumn(name="id_Empresa", nullable = false)
@@ -60,21 +57,6 @@ public class Empleado {
         this.imagen = imagen;
     }
 
-    public LocalDate getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDate getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDate updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
   /*  public MovimientoDinero getMovimientoDinero() {
         return movimientoDinero;
