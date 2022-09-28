@@ -41,6 +41,16 @@ import java.util.logging.Logger;
             return "list";
 
         }
+        @GetMapping("empleado/list2")
+        public String EmpleadoMovimientos(Model model){
+            LOG.log(Level.INFO,"getListEmpleado");
+            List<Empleado> empleados = empleadoService.findByAll();
+            for (Empleado user : empleados)
+                System.out.println(user.toString());
+            model.addAttribute("empleados", empleados);
+            return "empleadoingresarmovimiento";
+
+        }
         //Crear Empleado
         @GetMapping("empleado/crear")
         public String createempelado(Model modelo){

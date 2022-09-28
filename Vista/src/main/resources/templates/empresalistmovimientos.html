@@ -10,7 +10,7 @@
 
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-    <a href='/' ><img src='https://i.postimg.cc/bG6NnCNv/Whats-App-Image-2022-09-14-at-4-22-58-PM.jpg' border='0' alt='Whats-App-Image-2022-09-14-at-4-22-58-PM'/></a>
+    <a href='/' target='_blank'><img src='https://i.postimg.cc/bG6NnCNv/Whats-App-Image-2022-09-14-at-4-22-58-PM.jpg' border='0' alt='Whats-App-Image-2022-09-14-at-4-22-58-PM'/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,30 +28,26 @@
     <div class="table-responsive py-2">
       <table class="table table-striped">
         <tr>
-          <th>Concepto</th>
-          <th>Monto</th>
-          <th>Fecha</th>
-          <th>Empleado</th>
-          <th>Empresa</th>
+          <th>nombre Empresa</th>
+          <th>NIT Empresa</th>
+
+
         </tr>
 
-        <tr th:each="MovimientoDinero : ${movimientoDineros}">
-          <td th:text="${MovimientoDinero.conceptomovimiento}"></td>
-          <td th:text="${MovimientoDinero.montodelmovimiento}"></td>
-          <td th:text="${MovimientoDinero.createdAt}"></td>
-          <td th:text="${MovimientoDinero.empleado.nombreEmpleado}"></td>
-          <td th:text="${MovimientoDinero.empleado.empresa.nombreEmpresa}"></td>
+        <tr th:each="Empresa : ${empresas}">
+          <td th:text="${Empresa.nombreEmpresa}"></td>
+          <td th:text="${Empresa.NITEmpresa}"></td>
+          <td><a th:href="@{/empresa/}+${Empresa.idEmpresa}" class= "btn btn-info">ver</a></td>
+        </tr>
 
 
 
       </table>
     </div>
   </div>
-
 </table>
 
-
-<footer th:replace="layout/plantilla :: footer"></footer>
+  <footer th:replace="layout/plantilla :: footer"></footer>
 
 </body>
 </html>

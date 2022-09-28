@@ -1,5 +1,4 @@
 package RPU.NET.Vista.controller;
-import RPU.NET.Vista.entity.Empleado;
 import RPU.NET.Vista.entity.Empresa;
 import RPU.NET.Vista.entity.MovimientoDinero;
 import RPU.NET.Vista.service.IEmpleadoService;
@@ -42,7 +41,7 @@ public class MovimientoDineroController {
         return "movimientoslist";
     }
 
-    @RequestMapping(value="movimientoDinero/empresa/{id}", method = RequestMethod.GET)
+    @RequestMapping(value="/empresa/{id}", method = RequestMethod.GET)
     public String MovimientosEmpresa(@PathVariable ("id") long id, Model model){
         LOG.log(Level.INFO,"MovimientoDineroEmpresa");
         List<List<MovimientoDinero>> movimientoDineros1=movimientoDineroService.findByIdmovimiento(id);
@@ -58,36 +57,25 @@ public class MovimientoDineroController {
 
 
     //Crear MVD
-    @GetMapping("movimientoDinero/crear")
-    public String createMovimientoDinero(Model modelo){
+    @RequestMapping(value = "/crear/{id}", method = RequestMethod.GET)
+    public String createMovimientoDinero(@PathVariable ("id") long id, Model modelo){
         LOG.log(Level.INFO,"createMovimientoDinero");
-        //Monto + Concepto
-        MovimientoDinero movimientoDinero = new MovimientoDinero();
-        List<MovimientoDinero> movimientoDineros= movimientoDineroService.findByAll();
-        modelo.addAttribute("movimientoDinero", movimientoDinero);
-        LOG.log(Level.INFO,"getListEmpleado");
-        List<Empleado> empleados = empleadoService.findByAll();
-        for (Empleado user : empleados)
-            System.out.println(user.toString());
-        modelo.addAttribute("empleados", empleados);
-        LOG.log(Level.INFO,"getListEmpresa");
-        List<Empresa> empresas = empresaService.findAll();
-        for (Empresa user : empresas)
-            System.out.println(user.toString());
-        modelo.addAttribute("empresas", empresas);
-        return "movimientoCrear";
+
+        List<MovimientoDinero> movimientoDineros= movimientoDineroService.getEmpleadoById(id);
+        modelo.addAttribute("movimientoDinero", movimientoDineros);
+        return "crearMovimientoDinero";
     }
     //Guardar MVD
-    @PostMapping("MovimientoDinero/guardar")
+    @PostMapping("/guardar")
     public String guardarMovimientoDinero(@Valid MovimientoDinero movimientoDinero, BindingResult error, Model modelo){
         LOG.log(Level.INFO,"guardarMovimientoDinero");
         for(ObjectError e : error.getAllErrors())
             System.out.println(e.toString());
-        if(error.hasErrors()) {
-            return "MovimientoDinero/modificar";
-        }
+        //if(error.hasErrors()) {
+          //  return "MovimientoDinero/modificar";
+       // }
         movimientoDinero=movimientoDineroService.createMovimientoDinero(movimientoDinero);
-        return "MovimientoDinero/list";
+        return "crearMovimientoDinero";
     }
     //Editar MVD
     @RequestMapping(value = "MovimientoDinero/editarMovimientoDinero/{id}", method = RequestMethod.GET)
@@ -108,5 +96,4 @@ public class MovimientoDineroController {
     }
 
 }
-
 
