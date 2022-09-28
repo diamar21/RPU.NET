@@ -19,8 +19,6 @@ public class Empleado {
 
     @Column(name = "telefono", nullable = false)
     public String telefono;
-    @Column(name = "imagen", nullable = false)
-    public String imagen;
 
 
     @ManyToOne // la relacion queda de la llave foranea mejora la codificacion
@@ -47,14 +45,6 @@ public class Empleado {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
     }
 
 
