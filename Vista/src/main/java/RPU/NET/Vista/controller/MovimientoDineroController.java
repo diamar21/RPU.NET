@@ -57,26 +57,25 @@ public class MovimientoDineroController {
 
 
     //Crear MVD
-    @GetMapping("movimientoDinero/crear")
-    public String createMovimientoDinero(Model modelo){
+    @RequestMapping(value = "/crear/{id}", method = RequestMethod.GET)
+    public String createMovimientoDinero(@PathVariable ("id") long id, Model modelo){
         LOG.log(Level.INFO,"createMovimientoDinero");
-        //Monto + Concepto
-        MovimientoDinero movimientoDinero = new MovimientoDinero();
-        List<MovimientoDinero> movimientoDineros= movimientoDineroService.findByAll();
-        modelo.addAttribute("movimientoDinero", movimientoDinero);
+
+        List<MovimientoDinero> movimientoDineros= movimientoDineroService.getEmpleadoById(id);
+        modelo.addAttribute("movimientoDinero", movimientoDineros);
         return "crearMovimientoDinero";
     }
     //Guardar MVD
-    @PostMapping("MovimientoDinero/guardar")
+    @PostMapping("/guardar")
     public String guardarMovimientoDinero(@Valid MovimientoDinero movimientoDinero, BindingResult error, Model modelo){
         LOG.log(Level.INFO,"guardarMovimientoDinero");
         for(ObjectError e : error.getAllErrors())
             System.out.println(e.toString());
-        if(error.hasErrors()) {
-            return "MovimientoDinero/modificar";
-        }
+        //if(error.hasErrors()) {
+          //  return "MovimientoDinero/modificar";
+       // }
         movimientoDinero=movimientoDineroService.createMovimientoDinero(movimientoDinero);
-        return "MovimientoDinero/list";
+        return "crearMovimientoDinero";
     }
     //Editar MVD
     @RequestMapping(value = "MovimientoDinero/editarMovimientoDinero/{id}", method = RequestMethod.GET)

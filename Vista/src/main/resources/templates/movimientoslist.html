@@ -32,6 +32,7 @@
           <th>Monto</th>
           <th>Fecha</th>
           <th>Empleado</th>
+          <th>Empresa</th>
         </tr>
 
         <tr th:each="MovimientoDinero : ${movimientoDineros}">
@@ -39,9 +40,8 @@
           <td th:text="${MovimientoDinero.montodelmovimiento}"></td>
           <td th:text="${MovimientoDinero.createdAt}"></td>
           <td th:text="${MovimientoDinero.empleado.nombreEmpleado}"></td>
+          <td th:text="${MovimientoDinero.empleado.empresa.nombreEmpresa}"></td>
 
-
-          <td><a href="editarEmpleado/" class= "btn btn-info">Modificar</a></td>
 
 
       </table>
