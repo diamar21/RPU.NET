@@ -33,6 +33,11 @@ import java.util.logging.Logger;
             for (Empleado user : empleados)
                 System.out.println(user.toString());
             model.addAttribute("empleados", empleados);
+            LOG.log(Level.INFO,"getListEmpresa");
+            List<Empresa> empresas = empresaService.findAll();
+            for (Empresa user : empresas)
+                System.out.println(user.toString());
+            model.addAttribute("empresas", empresas);
             return "list";
 
         }
@@ -42,9 +47,12 @@ import java.util.logging.Logger;
             LOG.log(Level.INFO,"createempleado");
             Empleado empleado = new Empleado();
             modelo.addAttribute("empleado", empleado);
-            Empresa empresa = new Empresa();
-            List<Empleado> empresas= empleadoService.findByAll();
-            modelo.addAttribute("Empleado",empleado);
+            List<Empleado> empleados= empleadoService.findByAll();
+            LOG.log(Level.INFO,"getListEmpresa");
+            List<Empresa> empresas = empresaService.findAll();
+            for (Empresa user : empresas)
+                System.out.println(user.toString());
+            modelo.addAttribute("empresas", empresas);
             return "empleadoCrear";
 
         }
@@ -58,7 +66,7 @@ import java.util.logging.Logger;
                 return "empleado/crear";
             }
             empleado = empleadoService.createEmpleado(empleado);
-            return "crearEmpleado";
+            return "creado";
         }
         //Editar Empleado
         @RequestMapping(value = "empleado/editarEmpleado/{id}", method = RequestMethod.GET)
