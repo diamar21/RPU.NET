@@ -48,7 +48,17 @@ public class MovimientoDineroController {
         MovimientoDinero movimientoDinero = new MovimientoDinero();
         List<MovimientoDinero> movimientoDineros= movimientoDineroService.findByAll();
         modelo.addAttribute("movimientoDinero", movimientoDinero);
-        return "crearMovimientoDinero";
+        LOG.log(Level.INFO,"getListEmpleado");
+        List<Empleado> empleados = empleadoService.findByAll();
+        for (Empleado user : empleados)
+            System.out.println(user.toString());
+        modelo.addAttribute("empleados", empleados);
+        LOG.log(Level.INFO,"getListEmpresa");
+        List<Empresa> empresas = empresaService.findAll();
+        for (Empresa user : empresas)
+            System.out.println(user.toString());
+        modelo.addAttribute("empresas", empresas);
+        return "movimientoCrear";
     }
     //Guardar MVD
     @PostMapping("MovimientoDinero/guardar")
@@ -81,4 +91,5 @@ public class MovimientoDineroController {
     }
 
 }
+
 
