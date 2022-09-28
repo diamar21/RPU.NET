@@ -1,4 +1,5 @@
 package RPU.NET.Vista.controller;
+import RPU.NET.Vista.entity.Empleado;
 import RPU.NET.Vista.entity.Empresa;
 import RPU.NET.Vista.entity.MovimientoDinero;
 import RPU.NET.Vista.service.IEmpleadoService;
@@ -41,7 +42,7 @@ public class MovimientoDineroController {
         return "movimientoslist";
     }
 
-    @RequestMapping(value="/empresa/{id}", method = RequestMethod.GET)
+    @RequestMapping(value="movimientoDinero/empresa/{id}", method = RequestMethod.GET)
     public String MovimientosEmpresa(@PathVariable ("id") long id, Model model){
         LOG.log(Level.INFO,"MovimientoDineroEmpresa");
         List<List<MovimientoDinero>> movimientoDineros1=movimientoDineroService.findByIdmovimiento(id);
