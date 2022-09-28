@@ -1,5 +1,4 @@
 package RPU.NET.Vista.controller;
-import RPU.NET.Vista.entity.Empleado;
 import RPU.NET.Vista.entity.Empresa;
 import RPU.NET.Vista.entity.MovimientoDinero;
 import RPU.NET.Vista.service.IEmpleadoService;
@@ -12,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,6 +40,22 @@ public class MovimientoDineroController {
 
         return "movimientoslist";
     }
+
+    @RequestMapping(value="/empresa/{id}", method = RequestMethod.GET)
+    public String MovimientosEmpresa(@PathVariable ("id") long id, Model model){
+        LOG.log(Level.INFO,"MovimientoDineroEmpresa");
+        List<List<MovimientoDinero>> movimientoDineros1=movimientoDineroService.findByIdmovimiento(id);
+
+        for(List<MovimientoDinero> mov: movimientoDineros1){
+           System.out.println(mov.toString());
+           model.addAttribute("movimientosDineros1", mov);
+
+        }
+
+        return "movimientosempresa";
+    }
+
+
     //Crear MVD
     @GetMapping("movimientoDinero/crear")
     public String createMovimientoDinero(Model modelo){

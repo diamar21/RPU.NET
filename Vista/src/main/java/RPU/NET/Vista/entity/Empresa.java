@@ -80,7 +80,16 @@ public class Empresa {
         this.direccionEmpresa = direccionEmpresa;
     }
 
-
+    @Override
+    public String toString() {
+        return "Empresa{" +
+                "idEmpresa=" + idEmpresa +
+                ", nombreEmpresa='" + nombreEmpresa + '\'' +
+                ", NITEmpresa='" + NITEmpresa + '\'' +
+                ", telefonoEmpresa='" + telefonoEmpresa + '\'' +
+                ", direccionEmpresa='" + direccionEmpresa + '\'' +
+                '}';
+    }
 }
 
 
