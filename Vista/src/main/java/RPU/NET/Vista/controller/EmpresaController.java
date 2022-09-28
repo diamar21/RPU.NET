@@ -37,6 +37,16 @@ public class EmpresaController {
         model.addAttribute("empresas", empresas);
         return "empresalist";
     }
+    @GetMapping("empresa/list2")
+    public String getListEmpresamodificar(Model model){
+        LOG.log(Level.INFO,"getListEmpresa");
+        List<Empresa> empresas = empresaService.findAll();
+        for (Empresa user : empresas)
+            System.out.println(user.toString());
+        model.addAttribute("empresas", empresas);
+        return "empresalistmovimientos";
+    }
+
     //Crear Empresa este funciona
     @GetMapping("empresa/crear")
     public String createempresa(Model modelo){
