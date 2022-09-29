@@ -84,9 +84,12 @@ import java.util.logging.Logger;
             LOG.log(Level.INFO,"editEmpleado");
             Empleado empleado = empleadoService.findById(id);
             modelo.addAttribute("empleado", empleado);
-            List<Empresa> empresa=empresaService.findAll();
-            modelo.addAttribute("empresa",empresa);
-            return "empleadolist";
+            LOG.log(Level.INFO,"getListEmpresa");
+            List<Empresa> empresas = empresaService.findAll();
+            for (Empresa user : empresas)
+                System.out.println(user.toString());
+            modelo.addAttribute("empresas", empresas);
+            return "modificarEmpleado";
         }
         @RequestMapping(value = "empleado/eliminar/{id}", method = RequestMethod.GET)
         public String deleteEmpleado(@PathVariable("id") long id, Model modelo) {
