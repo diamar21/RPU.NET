@@ -1,4 +1,4 @@
-package RPU.NET.Vista.entity;
+package RPU.NET.projectWEB.empresathymeleaf.entity;
 
 
 import javax.persistence.*;
@@ -11,25 +11,30 @@ public class Empleado {
     @Id // decimos qie idrol es la Primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // autoincremental del id
     @Column(name = "id_empleado", nullable = false)
-    public long idEmpleado;
+    private long idEmpleado;
     @Column(name = "nombre", nullable = false)
-    public String nombreEmpleado;
+    private String nombreEmpleado;
     @Column(name = "correo", nullable = false)
-    public String correo;
+    private String correo;
 
     @Column(name = "telefono", nullable = false)
-    public String telefono;
-
+    private String telefono;
+    @Column(name = "imagen", nullable = false)
+    private String imagen;
+    @Column(name = "FechaCreacion", nullable = false)
+    private LocalDate createdAt;
+    @Column(name = "FechaActualizado", nullable = false)
+    private LocalDate updatedAt;
 
     @ManyToOne // la relacion queda de la llave foranea mejora la codificacion
     @JoinColumn(name="id_Empresa", nullable = false)
-    public Empresa empresa;
+    private Empresa empresa;
 
     //private MovimientoDinero movimientoDinero;
 
 
     @Column(name = "rol")
-    public Rol rol;
+    private Rol rol;
 
     public Empresa getEmpresa() {
         return empresa;
@@ -47,6 +52,29 @@ public class Empleado {
         this.telefono = telefono;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDate getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDate updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
   /*  public MovimientoDinero getMovimientoDinero() {
         return movimientoDinero;

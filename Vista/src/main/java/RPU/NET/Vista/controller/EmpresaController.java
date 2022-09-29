@@ -37,14 +37,24 @@ public class EmpresaController {
         model.addAttribute("empresas", empresas);
         return "empresalist";
     }
-    //Crear Empresa
+    @GetMapping("empresa/list2")
+    public String getListEmpresamodificar(Model model){
+        LOG.log(Level.INFO,"getListEmpresa");
+        List<Empresa> empresas = empresaService.findAll();
+        for (Empresa user : empresas)
+            System.out.println(user.toString());
+        model.addAttribute("empresas", empresas);
+        return "empresalistmovimientos";
+    }
+
+    //Crear Empresa este funciona
     @GetMapping("empresa/crear")
     public String createempresa(Model modelo){
         LOG.log(Level.INFO,"createempresa");
         //Empresa + Nombre + Direccion + Telefono + NIT
         Empresa empresa = new Empresa();
         modelo.addAttribute("empresa", empresa);
-        return "empresa/modificar";
+        return "empresaCrear";
     }
 
     //Guardar Empresa
@@ -54,10 +64,10 @@ public class EmpresaController {
         for(ObjectError e : error.getAllErrors())
             System.out.println(e.toString());
         if(error.hasErrors()) {
-            return "empresa/modificar";
+            return "empresa/crear";
         }
         empresa = empresaService.createEmpresa(empresa);
-        return "empresa/list";
+        return "Success";
     }
 
     //Editar Empresa
@@ -67,8 +77,7 @@ public class EmpresaController {
         Empresa empresa = empresaService.findById(id);
         modelo.addAttribute("empresa", empresa);
         List<Empresa> empresas=empresaService.findAll();
-        modelo.addAttribute("empresa",empresas);
-        return "empleado/modificar";
+        return "modificarEmpresa";
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.GET)

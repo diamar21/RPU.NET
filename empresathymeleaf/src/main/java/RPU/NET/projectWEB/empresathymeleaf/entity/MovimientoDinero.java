@@ -1,4 +1,4 @@
-package RPU.NET.Vista.entity;
+package RPU.NET.projectWEB.empresathymeleaf.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -8,21 +8,21 @@ public class MovimientoDinero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // autoincremental del id
     @Column(name = "id_movimientodinero", nullable = false) //
-    public   long idmovimientodinero;
+    private  long idmovimientodinero;
     @Column(name = "concepto", nullable = false)
-    public String conceptomovimiento;
+    private String conceptomovimiento;
     @Column(name = "cantidad", nullable = false)
-    public float montodelmovimiento;
+    private float montodelmovimiento;
 
     @ManyToOne
-    @JoinColumn(name="id_empleado")
-    public Empleado empleado;
+    @JoinColumn(name="id_empleado", nullable = false)
+    private Empleado empleado;
 
     //private Empresa empresa;
     @Column(name = "FechaCreacion", nullable = false)
-    public String createdAt;
+    private LocalDate createdAt;
     @Column(name = "FechaActualizado", nullable = false)
-    public String updatedAt;
+    private LocalDate updatedAt;
 
   /* public Empleado getEmpleado() {
         return empleado;
@@ -46,11 +46,11 @@ public class MovimientoDinero {
 
    /* public Empresa getEmpresa() {return empresa;}*/
 
-    public String getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public String getUpdatedAt() {
+    public LocalDate getUpdatedAt() {
         return updatedAt;
     }
 
@@ -70,11 +70,11 @@ public class MovimientoDinero {
         this.empresa = enterprise;
     }*/
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
-    public void setUpdatedAt(String updatedAt) {
+    public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
     }
 
@@ -84,7 +84,7 @@ public class MovimientoDinero {
                 "idTransaction=" + idmovimientodinero +
                 ", concept='" + conceptomovimiento + '\'' +
                 ", amount=" + montodelmovimiento +
-               ", user=" + empleado.getNombreEmpleado() +
+              //  ", user=" + empleado +
                // ", enterprise=" + empresa +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

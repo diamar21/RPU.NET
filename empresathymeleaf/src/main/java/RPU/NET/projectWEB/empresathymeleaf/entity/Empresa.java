@@ -1,4 +1,4 @@
-package RPU.NET.Vista.entity;
+package RPU.NET.projectWEB.empresathymeleaf.entity;
 import javax.persistence.*;
 
 @Entity
@@ -7,18 +7,18 @@ public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_Empresa", nullable = false)
-    public long idEmpresa;
+    private long idEmpresa;
     @Column(name = "nombre_Empresa", nullable = false)
-    public String nombreEmpresa;
+    private String nombreEmpresa;
 
     @Column(name = "NIT_empresa", nullable = false)
-    public String NITEmpresa;
+    private String NITEmpresa;
 
     @Column(name = "telefono_Empresa", nullable = false)
-    public String telefonoEmpresa;
+    private String telefonoEmpresa;
 
     @Column(name = "direccion_Empresa", nullable = false)
-    public String direccionEmpresa;
+    private String direccionEmpresa;
 
    /* private MovimientoDinero movimientoDineros;
 
@@ -80,16 +80,7 @@ public class Empresa {
         this.direccionEmpresa = direccionEmpresa;
     }
 
-    @Override
-    public String toString() {
-        return "Empresa{" +
-                "idEmpresa=" + idEmpresa +
-                ", nombreEmpresa='" + nombreEmpresa + '\'' +
-                ", NITEmpresa='" + NITEmpresa + '\'' +
-                ", telefonoEmpresa='" + telefonoEmpresa + '\'' +
-                ", direccionEmpresa='" + direccionEmpresa + '\'' +
-                '}';
-    }
+
 }
 
 

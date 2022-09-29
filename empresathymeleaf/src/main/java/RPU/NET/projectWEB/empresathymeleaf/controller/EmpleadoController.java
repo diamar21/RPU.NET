@@ -1,19 +1,29 @@
-package RPU.NET.project.empresa.controller;
+package RPU.NET.projectWEB.empresathymeleaf.controller;
 
-import RPU.NET.project.empresa.entity.Empleado;
-import RPU.NET.project.empresa.entity.MovimientoDinero;
-import RPU.NET.project.empresa.service.IEmpleadoService;
+import RPU.NET.projectWEB.empresathymeleaf.entity.Empleado;
+import RPU.NET.projectWEB.empresathymeleaf.service.IEmpleadoService;
+import RPU.NET.projectWEB.empresathymeleaf.service.IEmpresaService;
+import RPU.NET.projectWEB.empresathymeleaf.service.IMovimientoDineroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Logger;
 
-@RestController     // api rest
-@RequestMapping("/api")
-public class EmpleadoRestController {
+@Controller
+public class EmpleadoController {
 
     @Autowired
     private IEmpleadoService empleadoService;
+
+    @Autowired
+    private IEmpresaService empresaServiceService;
+
+    @Autowired
+    private IMovimientoDineroService movimientoDineroService;
+
+    private final Logger LOG= Logger.getLogger(""+EmpleadoController.class);
 
     @GetMapping("/empleado/{id}")
     public Empleado findById(@PathVariable long id){
