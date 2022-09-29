@@ -77,8 +77,7 @@ public class EmpresaController {
         Empresa empresa = empresaService.findById(id);
         modelo.addAttribute("empresa", empresa);
         List<Empresa> empresas=empresaService.findAll();
-        modelo.addAttribute("empresa",empresas);
-        return "empleado/modificar";
+        return "modificarEmpresa";
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.GET)
