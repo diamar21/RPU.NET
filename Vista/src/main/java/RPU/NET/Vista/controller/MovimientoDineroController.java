@@ -1,9 +1,11 @@
 package RPU.NET.Vista.controller;
+import RPU.NET.Vista.entity.Empleado;
 import RPU.NET.Vista.entity.Empresa;
 import RPU.NET.Vista.entity.MovimientoDinero;
 import RPU.NET.Vista.service.IEmpleadoService;
 import RPU.NET.Vista.service.IEmpresaService;
 import RPU.NET.Vista.service.IMovimientoDineroService;
+import RPU.NET.Vista.service.MovimientoDineroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,27 +68,33 @@ public class MovimientoDineroController {
         return "crearMovimientoDinero";
     }
     //Guardar MVD
-    @PostMapping("/guardar")
-    public String guardarMovimientoDinero(@Valid MovimientoDinero movimientoDinero, BindingResult error, Model modelo){
-        LOG.log(Level.INFO,"guardarMovimientoDinero");
-        for(ObjectError e : error.getAllErrors())
-            System.out.println(e.toString());
-        //if(error.hasErrors()) {
-          //  return "MovimientoDinero/modificar";
-       // }
-        movimientoDinero=movimientoDineroService.createMovimientoDinero(movimientoDinero);
+    //Crear MVD
+    @GetMapping("movimientoDinero/crear")
+    public String createMovimientoDinero(Model modelo){
+        LOG.log(Level.INFO,"createMovimientoDinero");
+        MovimientoDinero movimientoDinero = new MovimientoDinero();
+        modelo.addAttribute("movimientoDinero", movimientoDinero);
+        List<MovimientoDinero> movimientoDineros= movimientoDineroService.findByAll();
+        LOG.log(Level.INFO,"getListEmpleado");
+        List<Empleado> empleados = empleadoService.findByAll();
+        for (Empleado user : empleados)
+            System.out.println(user.toString());
+        modelo.addAttribute("empleados", empleados);
         return "crearMovimientoDinero";
     }
-    //Editar MVD
-    @RequestMapping(value = "MovimientoDinero/editarMovimientoDinero/{id}", method = RequestMethod.GET)
-    public String editMovimientoDinero(@PathVariable("id") long id, Model modelo){
-        LOG.log(Level.INFO,"editMovimientoDinero");
-        MovimientoDinero movimientoDinero= movimientoDineroService.findById(id);
-        modelo.addAttribute("movimientoDinero", movimientoDinero);
-        List<Empresa> empresa=empresaService.findAll();
-        modelo.addAttribute("empresa",empresa);
-        return "MovimientoDinero/modificar";
+    //Guardar MVD
+    @PostMapping("MovimientoDinero/guardar")
+    public String guardarMovimiento(@Valid MovimientoDinero movimientoDinero, BindingResult error, Model modelo){
+        LOG.log(Level.INFO,"guardarMovimiento");
+        for(ObjectError e : error.getAllErrors())
+            System.out.println(e.toString());
+        if(error.hasErrors()) {
+            return "movimientoslist";
+        }
+        movimientoDinero = movimientoDineroService.createMovimientoDinero(movimientoDinero);
+        return "Success";
     }
+
     //Borrar MVD
     @RequestMapping(value = "MovimientoDinero/eliminar/{id}", method = RequestMethod.GET)
     public String deleteMovimientoDinero(@PathVariable("id") long id, Model modelo) {
