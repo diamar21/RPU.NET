@@ -15,14 +15,14 @@ public class MovimientoDinero {
     public float montodelmovimiento;
 
     @ManyToOne
-    @JoinColumn(name="id_empleado", nullable = false)
+    @JoinColumn(name="id_empleado")
     public Empleado empleado;
 
     //private Empresa empresa;
     @Column(name = "FechaCreacion", nullable = false)
-    public LocalDate createdAt;
+    public String createdAt;
     @Column(name = "FechaActualizado", nullable = false)
-    public LocalDate updatedAt;
+    public String updatedAt;
 
   /* public Empleado getEmpleado() {
         return empleado;
@@ -46,11 +46,11 @@ public class MovimientoDinero {
 
    /* public Empresa getEmpresa() {return empresa;}*/
 
-    public LocalDate getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public LocalDate getUpdatedAt() {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 
@@ -70,11 +70,11 @@ public class MovimientoDinero {
         this.empresa = enterprise;
     }*/
 
-    public void setCreatedAt(LocalDate createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public void setUpdatedAt(LocalDate updatedAt) {
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
