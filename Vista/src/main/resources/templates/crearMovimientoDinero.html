@@ -11,7 +11,7 @@
 <!-- Content here -->
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-    <a href='/' ><img src='https://i.postimg.cc/bG6NnCNv/Whats-App-Image-2022-09-14-at-4-22-58-PM.jpg' border='0' alt='Whats-App-Image-2022-09-14-at-4-22-58-PM'/></a>
+    <a href='/Inicio' ><img src='https://i.postimg.cc/bG6NnCNv/Whats-App-Image-2022-09-14-at-4-22-58-PM.jpg' border='0' alt='Whats-App-Image-2022-09-14-at-4-22-58-PM'/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,36 +25,41 @@
 
 <div><h1>CREAR MOVIMIENTO</h1></div>
 
+
 <div class="row">
   <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="card">
       <div claas="card-body">
 
-        <form th:action="@{/guardar}" method="post" th:object="${movimientoDinero}">
-          <input type="hidden" name="idmovimientodinero" th:field="*{idmovimientodinero}">
-          <br>
-          <div class="form-group">
-            <label for= "conceptomovimiento">concepto </label>
-            <input type="text" class="form-control" placeholder="Concepto" name="conceptomovimiento" th:field="*{conceptomovimiento}"/>
+        <form th:action="@{/MovimientoDinero/guardar}" method="post" th:object="${movimientoDinero}">
+          <div hidden class="form-group">
+              <label for= "idmovimientodinero">Id Moviviento </label>
+              <input type="text" class="form-control" required placeholder="idmovimientodinero1" name="idmovimientodinero1" th:field="*{idmovimientodinero}"/>
+            </div>
+          <div  class="form-group">
+            <label for= "conceptomovimiento">Concepto </label>
+            <input type="text" class="form-control" required placeholder="conceptomovimiento" name="conceptomovimiento" th:field="*{conceptomovimiento}"/>
           </div>
-          <div class="form-group">
-            <label for= "Cantidad">correo </label>
-            <input type="text" class="form-control"  placeholder="monto" name="montodelmovimiento" th:field="*{montodelmovimiento}"/>
+          <div  class="form-group">
+            <label for= "montodelmovimiento">Monto del Movimiento </label>
+            <input type="text" class="form-control" required placeholder="montodelmovimiento" name="montodelmovimiento" th:field="*{montodelmovimiento}"/>
           </div>
-          <div class="form-group">
-            <label for= "createdAt">Telefono </label>
-            <input type="text" class="form-control" placeholder="createdAt " name="createdAt" th:field="*{createdAt}"/>
+          <div  class="form-group">
+            <label for= "empleado">empleado </label>
+            <input type="empleado" class="form-control"  placeholder="empleado" name="empleado" th:field="*{empleado}"/>
           </div>
-          <div class="form-group">
-            <label for= "updatedAt">Telefono </label>
-            <input type="text" class="form-control" placeholder="updatedAt " name="updatedAt" th:field="*{updatedAt}"/>
+          <div  class="form-group">
+            <label for= "createdAt">Fecha de creacion </label>
+            <input type="createdAt" class="form-control"  placeholder="createdAt" name="createdAt" th:field="*{createdAt}"/>
           </div>
-          <br>
-          <button type="submit" class ="btn btn-success">
-            <i class="fas fa-check"></i> Guardar
+          <div  class="form-group">
+            <label for= "updatedAt">Fecha de modificacion </label>
+            <input type="updatedAt" class="form-control"  placeholder="updatedAt" name="updatedAt" th:field="*{updatedAt}"/>
+          </div>
+          <button type="submit" class ="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+            Guardar Empresa
           </button>
-          <br>
-        </form>
+
       </div>
     </div>
   </div>
